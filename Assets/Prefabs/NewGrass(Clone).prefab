@@ -1,0 +1,164 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3994749770503420406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 247839713596326472}
+  - component: {fileID: 4394421417483760351}
+  - component: {fileID: 1840923557066367427}
+  - component: {fileID: -4867008381053974765}
+  - component: {fileID: 4433517483624362247}
+  - component: {fileID: 6997124826840611480}
+  - component: {fileID: 925381872552706280}
+  m_Layer: 0
+  m_Name: NewGrass(Clone)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &247839713596326472
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3994749770503420406}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
+  m_LocalPosition: {x: -2.99, y: -6.0398664, z: 0.24035501}
+  m_LocalScale: {x: 8.426237, y: 7.8154955, z: 61.083755}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
+--- !u!33 &4394421417483760351
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3994749770503420406}
+  m_Mesh: {fileID: -5495902117074765545, guid: 509286c2cbb2096468ef06c245fbb70d, type: 3}
+--- !u!23 &1840923557066367427
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3994749770503420406}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 3e989d4807dee3640beae5a3f943efa6, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-4867008381053974765
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3994749770503420406}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.021849552, y: 0.027575387, z: 0.016716719}
+  m_Center: {x: 0.0024609214, y: 0.001718953, z: -0.00036783796}
+--- !u!114 &4433517483624362247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3994749770503420406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 245978e7144f3b14dbfdd443aa7b1f6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GrassGrow: 0
+  GrassTim: 0
+  money: {fileID: 0}
+  GrowthUpg: {fileID: 0}
+  MoneyUpg: {fileID: 0}
+  MoneyUpgrade: 0
+  GrassDownBool: 0
+  GrassGoToPosition: -6
+  GrassStartPosition: -4.89
+  Grass_Change_Color: {fileID: 925381872552706280}
+  Pick_Up_Flower_Money_Multiplyer: {fileID: 0}
+--- !u!114 &6997124826840611480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3994749770503420406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d453e96c19483f439476ef0afba2936, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GrassParticle1: {fileID: 3685291483911423532, guid: 232eb48fd5d1050468e1d6640dbfbae8, type: 3}
+  GrassParticle2: {fileID: 6711855279024873523, guid: 61417955cd1571e4fa1ecc4781d2444c, type: 3}
+  GrassParticle3: {fileID: 8380524509986697993, guid: 6bd64fcb5209e224dba855bfab3d7118, type: 3}
+--- !u!114 &925381872552706280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3994749770503420406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05db1ade9c173764fa0847691dc6dc8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GrassColor: {x: 0, y: 0.82938623, z: 0, w: 0.5829719}

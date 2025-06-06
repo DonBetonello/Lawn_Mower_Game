@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 225e46ebcfbd23e4698c188b1e82016d
+timeCreated: 1537454551
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143159
+  packageName: Ui button pack 6
+  packageVersion: 1.0
+  assetPath: Assets/Saurabh_Studio/Ex Scene/CreateObj.cs
+  uploadId: 307891
