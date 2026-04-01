@@ -4,30 +4,25 @@ using UnityEngine;
 
 public class ParticleSpawn : MonoBehaviour
 {
-    
-    [SerializeField] private GameObject GrassParticle1;
-    [SerializeField] private GameObject GrassParticle2;
-    [SerializeField] private GameObject GrassParticle3;
-    private int RandomParticle;
+    [SerializeField] private GameObject[] GrassParticles;
 
-    // Update is called once per frame
     void OnTriggerEnter(Collider collision)
-    {   
-        
-        
-        RandomParticle = Random.Range(1, 4);
-        if (RandomParticle == 1)
+    {
+       int RandomParticle = Random.Range(1, 4);
+
+        switch (RandomParticle)
         {
-            Instantiate(GrassParticle1, transform.position, Quaternion.LookRotation(new Vector3(0, 90, 0), new Vector3(0, 90, 0)));
+            case 1:
+                Instantiate(GrassParticles[0], transform.position, Quaternion.LookRotation(new Vector3(0, 90, 0), new Vector3(0, 90, 0)));
+                break;
+            case 2:
+                Instantiate(GrassParticles[1], transform.position, Quaternion.LookRotation(new Vector3(0, 90, 0), new Vector3(0, 90, 0)));
+                break;
+            case 3:
+                Instantiate(GrassParticles[2], transform.position, Quaternion.LookRotation(new Vector3(0, 90, 0), new Vector3(0, 90, 0)));
+                break;
+
         }
-        if (RandomParticle == 2)
-        {
-            Instantiate(GrassParticle2, transform.position, Quaternion.LookRotation(new Vector3(0, 90, 0), new Vector3(0, 90, 0)));
-        }
-        if (RandomParticle == 3)
-        {
-            Instantiate(GrassParticle3, transform.position, Quaternion.LookRotation(new Vector3(0, 90, 0), new Vector3(0, 90, 0)));
-        }        
+
     }
-  
 }

@@ -16,7 +16,7 @@ public class PauseButtonScript : MonoBehaviour
     [SerializeField] private AudioSource ButtonSound;
     [SerializeField] private Sound_Change_Button_Script Is_Sound_On;
     private bool PauseButtonOn = false;
-    public DroneUpgrade DroneIsBought;
+
     // Start is called before the first frame update
     void Start()
     {

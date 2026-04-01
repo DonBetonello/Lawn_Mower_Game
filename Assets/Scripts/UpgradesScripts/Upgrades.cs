@@ -1,0 +1,124 @@
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
+public class Upgrades : MonoBehaviour
+{
+    [SerializeField] private UpgradeData speedUpgradeData;
+    [SerializeField] private UpgradeData growthUpgradeData;
+    [SerializeField] private UpgradeData earningUpgradeData;
+    [SerializeField] private UpgradeData droneSpeedUpgradeData;
+
+    public UpgradeData SpeedUpgradeData { get => speedUpgradeData; }
+    public UpgradeData GrowthUpgradeData { get => growthUpgradeData; }
+    public UpgradeData EarningUpgradeData { get => earningUpgradeData; }
+
+    public UpgradeData DroneSpeedUpgradeData { get => droneSpeedUpgradeData; }
+
+    public float Money { get => money; }
+ 
+    [SerializeField] private TextMeshProUGUI MoneyCount;
+   
+
+    [SerializeField] private float money = 0;
+
+
+    [SerializeField] private GameObject droneObject;
+
+    [SerializeField] private int droneUpgradeCost = 1500;
+
+    [SerializeField] private GameObject Multiplyer_Flower_Object;
+    [SerializeField] private Button Buy_Multiplyer_Flower_BUTTTON;
+
+ 
+
+    public event System.Action OnRefreshUI;
+    public event System.Action<UpgradeData> OnRefreshUpgradeUI;
+    public event System.Action<UpgradeData.UpgradeType> OnReachMaxUpgrade;
+    public event System.Action OnDroneUpgradePurchased;
+    public event System.Action OnMultiplyerFlowerPurchased;
+
+
+    void Start()
+    {           
+       RefreshUpgradeUI(speedUpgradeData);
+       RefreshUpgradeUI(growthUpgradeData);
+       RefreshUpgradeUI(earningUpgradeData);
+    }
+
+    public void MaxUpgradeReached(UpgradeData.UpgradeType upgradeType)
+    {
+        OnReachMaxUpgrade?.Invoke(upgradeType);
+    }
+
+    public void RefreshUI()
+    {
+       OnRefreshUI?.Invoke();     
+    }
+    public void RefreshUpgradeUI(UpgradeData upgrade)
+    {
+        OnRefreshUpgradeUI?.Invoke(upgrade);
+    }
+    void Update()
+    {
+        MoneyCount.text = Mathf.Round(money).ToString();
+       
+    }
+    public void SpeedIncreaseUpgradeButton()
+    {    
+        PurchaseUpgrade(speedUpgradeData);
+    }
+    public void GrowthIncreaseUpgradeButton()
+    {
+        PurchaseUpgrade(growthUpgradeData);       
+    }
+    public void EarningIncreaseUpgradeButton()
+    {
+        PurchaseUpgrade(earningUpgradeData);                
+    }
+    public void HanldeMultiplyerFlowerPurchaseMethod()
+    {
+        OnMultiplyerFlowerPurchased?.Invoke();
+        Multiplyer_Flower_Object.gameObject.SetActive(true);
+        Buy_Multiplyer_Flower_BUTTTON.interactable = false;
+        money -= 300; //300=how much to buy flower costs
+    }
+    public void AddMoney(float value)
+    {
+        money += value;
+    }
+    public void BuyDroneUpgradeButton()
+    {
+        if (money < droneUpgradeCost)
+            return;
+        money -= droneUpgradeCost;
+        droneObject.SetActive(true);
+        OnDroneUpgradePurchased?.Invoke();
+        
+    }
+    public void BuyDroneSpeedUpgradeButton()
+    {
+       PurchaseUpgrade(droneSpeedUpgradeData);     
+    }
+
+    public void PurchaseUpgrade(UpgradeData upgrade)
+    {
+     
+        if (money < upgrade.CurrentCost)
+            return;
+
+        if (upgrade.IsMaxUpgradeReached()) { 
+           MaxUpgradeReached(upgrade.Type);
+        return;
+        }
+
+        money -= upgrade.CurrentCost;
+
+        upgrade.IncreaseValue();
+        upgrade.IncreaseCost();
+
+      
+        RefreshUpgradeUI(upgrade);
+    }
+ 
+}

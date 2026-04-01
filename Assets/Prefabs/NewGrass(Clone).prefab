@@ -65,6 +65,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -86,9 +88,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &-4867008381053974765
 BoxCollider:
@@ -146,9 +150,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d453e96c19483f439476ef0afba2936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GrassParticle1: {fileID: 3685291483911423532, guid: 232eb48fd5d1050468e1d6640dbfbae8, type: 3}
-  GrassParticle2: {fileID: 6711855279024873523, guid: 61417955cd1571e4fa1ecc4781d2444c, type: 3}
-  GrassParticle3: {fileID: 8380524509986697993, guid: 6bd64fcb5209e224dba855bfab3d7118, type: 3}
+  GrassParticles:
+  - {fileID: 3685291483911423532, guid: 232eb48fd5d1050468e1d6640dbfbae8, type: 3}
+  - {fileID: 6711855279024873523, guid: 61417955cd1571e4fa1ecc4781d2444c, type: 3}
+  - {fileID: 8380524509986697993, guid: 6bd64fcb5209e224dba855bfab3d7118, type: 3}
 --- !u!114 &925381872552706280
 MonoBehaviour:
   m_ObjectHideFlags: 0

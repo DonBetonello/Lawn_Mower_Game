@@ -9,9 +9,9 @@ public class GrassDown : MonoBehaviour
   
     [SerializeField] private bool GrassGrow = false;
     [SerializeField] private float GrassTim = 0;
-    public Upgrades money;
-    public Upgrades GrowthUpg;
-    public Upgrades MoneyUpg;
+   
+    public Upgrades upgrades;
+ 
     [SerializeField] public float MoneyUpgrade;
     [SerializeField] public bool GrassDownBool;
     [SerializeField] private float GrassGoToPosition;
@@ -39,7 +39,7 @@ public class GrassDown : MonoBehaviour
         }
        
 
-        if (GrassTim >= 5 - GrowthUpg.GrowthUpgrade)
+        if (GrassTim >= 5 - upgrades.GrowthUpgradeData.Value)
         {
             GrassGrow = false;
             transform.DOMove(new Vector3(transform.position.x, GrassStartPosition, transform.position.z), 1);
@@ -64,7 +64,7 @@ public class GrassDown : MonoBehaviour
         {
             Flower_Multiplyer = 1f;
         }
-        money.AddMoney((1.0f + MoneyUpg.MoneyUpgrade) * Flower_Multiplyer);
+        upgrades.AddMoney((1.0f + upgrades.EarningUpgradeData.Value) * Flower_Multiplyer);
        
         GrassGrow = true;
         GrassDownBool = true;
