@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
-using UnityEngine.SceneManagement;
+
 public class PauseButtonScript : MonoBehaviour
 {
     [SerializeField] private Image Shop_Menu_Background;
@@ -18,10 +16,6 @@ public class PauseButtonScript : MonoBehaviour
         PauseButtonOn = false;
     }
 
-    public void FixedUpdate()
-    {
-
-    }
     public void OnPauseButtonClick()
     {
         if (PauseButtonOn == false)
@@ -46,7 +40,7 @@ public class PauseButtonScript : MonoBehaviour
             ButtonSound.Play();
         }
 
-        TimeScale();
+        Time.timeScale = 0f;
     }
     public void PauseGameOff()
     {
@@ -62,8 +56,5 @@ public class PauseButtonScript : MonoBehaviour
         PauseButtonOn = false;
         Time.timeScale = 1f;
     }
-    void TimeScale()
-    {
-        Time.timeScale = 0f;
-    }
+  
 }

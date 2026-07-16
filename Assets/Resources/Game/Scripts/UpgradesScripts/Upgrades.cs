@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class Upgrades : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class Upgrades : MonoBehaviour
     public event System.Action OnRefreshUI;
     public event System.Action<UpgradeData> OnRefreshUpgradeUI;
     public event System.Action<UpgradeData.UpgradeType> OnReachMaxUpgrade;
-    public event System.Action OnDroneUpgradePurchased;
+  //  public event System.Action OnDroneUpgradePurchased;
     public event System.Action OnMultiplyerFlowerPurchased;
 
 
@@ -64,6 +65,8 @@ public class Upgrades : MonoBehaviour
         MoneyCount.text = Mathf.Round(moneyHandler.GetMoney).ToString();
        
     }
+   
+
     public void SpeedIncreaseUpgradeButton()
     {    
         PurchaseUpgrade(speedUpgradeData);
@@ -91,7 +94,7 @@ public class Upgrades : MonoBehaviour
             return;
         moneyHandler.RemoveMoney(droneUpgradeCost);
         droneObject.SetActive(true);
-        OnDroneUpgradePurchased?.Invoke();
+    
         
     }
     public void BuyDroneSpeedUpgradeButton()

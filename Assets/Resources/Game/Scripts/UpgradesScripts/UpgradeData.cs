@@ -5,15 +5,19 @@ public class UpgradeData
 {
     public enum UpgradeType
     {
-        SpeedUpgrade,
-        GrowthUpgrade,
-        EarningUpgrade,
-        DroneSpeedUpgrade
+        PlayerSpeed,
+        Growth,
+        Earning,
+        DroneSpeed
 
     }
     public UpgradeType Type;
     public float Value;
     public float IncreaseAmount;
+
+    public int CurrentLevel;
+
+    public int MaxLevel;
 
     public float StartCost;
     public float CurrentCost;
@@ -23,11 +27,17 @@ public class UpgradeData
 
     public bool IsMaxUpgradeReached()
     {
-        return Value >= MaxValue;
+        return CurrentLevel >= MaxLevel;
     }
     public void IncreaseValue()
     {
         Value += IncreaseAmount;
+        IncreaseLevel();
+    }
+
+    private void IncreaseLevel()
+    {
+        CurrentLevel++;
     }
 
     public void IncreaseCost()

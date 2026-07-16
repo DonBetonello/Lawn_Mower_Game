@@ -6,7 +6,7 @@ public class DroneMovingScript : MonoBehaviour
 
     private Vector3 direction;
     private Vector3 reflectDirection;
-    private bool Isfence = false;
+  
     [SerializeField] private Upgrades upgrades;
 
     private void Start()
@@ -38,11 +38,7 @@ public class DroneMovingScript : MonoBehaviour
         {
             reflectDirection = Vector3.Reflect(direction, VectorHit.normal);
         }
-        if (VectorHit.collider.GetComponent<IsFense>())
-        {
-            Isfence = true;
-        }
-
+    
     }
 
 

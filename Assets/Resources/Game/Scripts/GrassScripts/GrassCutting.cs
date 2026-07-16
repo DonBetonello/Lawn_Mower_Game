@@ -13,22 +13,21 @@ public class GrassCutting : MonoBehaviour
 
     private MoneyHandler moneyHandler;
 
-    public Upgrades upgrades;
+    private Upgrades upgrades;
 
-    [SerializeField] public float MoneyUpgrade;
-    [SerializeField] public bool isGrassDownBool;
+
+    [SerializeField] private bool isGrassDownBool;
     [SerializeField] private float GrassGoToPosition;
     [SerializeField] private float GrassStartPosition = -0.5f;
-    [SerializeField] private GrassGradient Grass_Change_Color;
-    public Flower_Multiplyer_Sript Pick_Up_Flower_Money_Multiplyer;
-    private float Flower_Multiplyer = 1;
-
+  
+ 
 
     public static event System.Action OnGrassGotCut; // Event to notify when the grass is cut
 
 
     void Start()
     {
+        upgrades = FindFirstObjectByType<Upgrades>();
         RandomizeGrassRotationAtStart();
     }
 
@@ -40,7 +39,7 @@ public class GrassCutting : MonoBehaviour
         {
 
             GetGrassDown();
-            Grass_Change_Color.Grass_Changes_color();
+           
             isGrassDownBool = false;
         }
        
