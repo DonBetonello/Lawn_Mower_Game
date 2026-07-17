@@ -22,9 +22,9 @@ public class UIEventBus : MonoBehaviour
     public static event Action<GameObject, UpgradeData> OnUpgradeDescriptionOpened;
     public static event Action<GameObject> OnUpgradeDescriptionClosed;
 
-    public static void RaiseUpgradeDescriptionOpened(GameObject upgradeDescription, UpgradeData upgradeData)
+    public static void RaiseUpgradeDescriptionOpened(GameObject upgradeDescription, UpgradeData upgradeData )
     {
-        OnUpgradeDescriptionOpened?.Invoke(upgradeDescription, upgradeData);
+        OnUpgradeDescriptionOpened?.Invoke(upgradeDescription,  upgradeData);
     }
 
     public static void RaiseUpgradeDescriptionClosed(GameObject upgradeDescription)
@@ -32,10 +32,15 @@ public class UIEventBus : MonoBehaviour
         OnUpgradeDescriptionClosed?.Invoke(upgradeDescription);
     }
 
-    public static event Action<UpgradeData> OnUpgradePurchased;
 
-    public static void RaiseUpgradePurchased(UpgradeData upgradeData)
+
+    public static event Action<UpgradeData> OnUpgradeDataRefresh;
+
+    public static void RaiseUpgradeDataRefresh(UpgradeData upgradeData)
     {
-        OnUpgradePurchased?.Invoke(upgradeData);
+        OnUpgradeDataRefresh?.Invoke(upgradeData);
     }
+
+
+   
 }

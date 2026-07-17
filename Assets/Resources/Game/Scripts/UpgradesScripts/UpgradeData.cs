@@ -1,49 +1,47 @@
 using UnityEngine;
 
-[System.Serializable]
-public class UpgradeData 
+[CreateAssetMenu(fileName = "UpgradeData", menuName = "Scriptable Objects/Upgrade Data")]
+public class UpgradeData : ScriptableObject
 {
-    public enum UpgradeType
-    {
-        PlayerSpeed,
-        Growth,
-        Earning,
-        DroneSpeed
 
-    }
-    public UpgradeType Type;
-    public float Value;
+    public string Name;
+   
     public float IncreaseAmount;
 
-    public int CurrentLevel;
+    public float StartValue;
 
+    public int StartLevel;
     public int MaxLevel;
 
     public float StartCost;
-    public float CurrentCost;
     public float CostMultiplier;
 
-    public float MaxValue;
+    public string Description;
 
-    public bool IsMaxUpgradeReached()
-    {
-        return CurrentLevel >= MaxLevel;
-    }
-    public void IncreaseValue()
-    {
-        Value += IncreaseAmount;
-        IncreaseLevel();
-    }
 
-    private void IncreaseLevel()
+    [System.Serializable]
+    public struct UpgradeDataStruct
     {
-        CurrentLevel++;
-    }
+        public string Name;
+      
+        public float IncreaseAmount;
+        public int MaxLevel;
+        public float StartCost;
+        public float CostMultiplier;
 
-    public void IncreaseCost()
-    {
-        CostMultiplier += 0.2f;
-        CurrentCost = StartCost * CostMultiplier;
+        public string Description;
+
+        public UpgradeDataStruct(UpgradeData upgradeData)
+        {
+           
+            Name = upgradeData.Name;
+            IncreaseAmount = upgradeData.IncreaseAmount;
+            MaxLevel = upgradeData.MaxLevel;
+            StartCost = upgradeData.StartCost;
+            CostMultiplier = upgradeData.CostMultiplier;
+            Description = upgradeData.Description;
+         
+        }
     }
 
 }

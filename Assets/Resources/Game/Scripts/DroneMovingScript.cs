@@ -29,7 +29,7 @@ public class DroneMovingScript : MonoBehaviour
     private void FixedUpdate()
     {
 
-        transform.Translate(direction * upgrades.DroneSpeedUpgradeData.Value * Time.deltaTime);
+     //   transform.Translate(direction * upgrades.DroneSpeedUpgradeData.Value * Time.deltaTime); //Fix this
         Ray VectorRay = new Ray(transform.position, direction * 10f);
         RaycastHit VectorHit;
         Debug.DrawRay(transform.position, direction * 10f, Color.red);

@@ -19,8 +19,8 @@ public class GrassCutting : MonoBehaviour
     [SerializeField] private bool isGrassDownBool;
     [SerializeField] private float GrassGoToPosition;
     [SerializeField] private float GrassStartPosition = -0.5f;
-  
- 
+
+    [SerializeField] private UpgradeData GrowthUpgradesData;
 
     public static event System.Action OnGrassGotCut; // Event to notify when the grass is cut
 
@@ -44,7 +44,7 @@ public class GrassCutting : MonoBehaviour
         }
        
 
-        if (GrassRegrowTimer >= 5 - upgrades.GrowthUpgradeData.Value)
+        if (GrassRegrowTimer >= 5 - upgrades.GetRuntimeData(GrowthUpgradesData).CurrentValue)
         {
             isGrassGrowing = false;
             GetGrassUp();

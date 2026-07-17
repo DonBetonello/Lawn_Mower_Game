@@ -127,17 +127,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 245978e7144f3b14dbfdd443aa7b1f6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GrassGrow: 0
-  GrassTim: 0
-  money: {fileID: 0}
-  GrowthUpg: {fileID: 0}
-  MoneyUpg: {fileID: 0}
-  MoneyUpgrade: 0
-  GrassDownBool: 0
+  isGrassGrowing: 0
+  GrassRegrowTimer: 0
+  isGrassDownBool: 0
   GrassGoToPosition: -6
   GrassStartPosition: -4.89
-  Grass_Change_Color: {fileID: 925381872552706280}
-  Pick_Up_Flower_Money_Multiplyer: {fileID: 0}
+  GrowthUpgradesData: {fileID: 11400000, guid: 2525ffb8abf4e1441a9021ebc6eb35ee, type: 2}
 --- !u!114 &6997124826840611480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,4 +161,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05db1ade9c173764fa0847691dc6dc8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GrassColor: {x: 0, y: 0.82938623, z: 0, w: 0.5829719}

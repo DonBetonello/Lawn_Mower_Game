@@ -14,6 +14,8 @@ public class JoystickControl : MonoBehaviour
 
     private Upgrades upgrades;
 
+    [SerializeField] private UpgradeData upgradeData;
+
     private float IsMoving;
     //  [SerializeField] public Animator Moving_Lawnmover_Animatior;
 
@@ -26,7 +28,7 @@ public class JoystickControl : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        _moveSpeed = upgrades.SpeedUpgradeData.Value;
+        _moveSpeed = upgrades.GetRuntimeData(upgradeData).CurrentValue; //Fix this
         _rigidbody.linearVelocity = new Vector3(_joystick.Horizontal * _moveSpeed, _rigidbody.linearVelocity.y, _joystick.Vertical * _moveSpeed);
 
         if (_joystick.Horizontal != 0 || _joystick.Vertical != 0)

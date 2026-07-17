@@ -1,6 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
-using UnityEngine.UI;
+
 
 public class UpgradeBoardOpeningAnimation : MonoBehaviour
 {

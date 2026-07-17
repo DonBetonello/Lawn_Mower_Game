@@ -11,7 +11,7 @@ public class MoneyHandler : MonoBehaviour
     private float flowerMultiplierTimer = 0f; // Timer for flower multiplier duration
    [SerializeField] private Upgrades upgrades;
 
-
+    [SerializeField] private UpgradeData upgradesData;
     
 
     public float GetMoney => money;
@@ -59,6 +59,7 @@ public class MoneyHandler : MonoBehaviour
         {
             flowerMultiplier = 1f;
         }
-        earningUpgradeMultiplier = 1f + (upgrades.EarningUpgradeData.Value * 0.1f); // Each level increases earnings by 10%
+        earningUpgradeMultiplier = 1f + (upgrades.GetRuntimeData(upgradesData).CurrentValue * 0.1f); // Each level increases earnings by 10%
+        // Fix this
     }
 }

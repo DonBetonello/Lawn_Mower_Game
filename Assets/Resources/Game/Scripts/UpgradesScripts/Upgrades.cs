@@ -1,27 +1,18 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System;
+using System.Collections.Generic;
 
 public class Upgrades : MonoBehaviour
 {
-    [SerializeField] private UpgradeData speedUpgradeData;
-    [SerializeField] private UpgradeData growthUpgradeData;
-    [SerializeField] private UpgradeData earningUpgradeData;
-    [SerializeField] private UpgradeData droneSpeedUpgradeData;
+    [SerializeField] private List<UpgradeData> upgrades;
+
+   private Dictionary<UpgradeData, UpgradeRuntimeData> runtimeData = new Dictionary<UpgradeData, UpgradeRuntimeData> ();
 
     private MoneyHandler moneyHandler;
-
-    public UpgradeData SpeedUpgradeData { get => speedUpgradeData; }
-    public UpgradeData GrowthUpgradeData { get => growthUpgradeData; }
-    public UpgradeData EarningUpgradeData { get => earningUpgradeData; }
-
-    public UpgradeData DroneSpeedUpgradeData { get => droneSpeedUpgradeData; }
-
  
     [SerializeField] private TextMeshProUGUI MoneyCount;
    
-
     [SerializeField] private GameObject droneObject;
 
     [SerializeField] private int droneUpgradeCost = 1500;
@@ -30,56 +21,35 @@ public class Upgrades : MonoBehaviour
     [SerializeField] private Button Buy_Multiplyer_Flower_BUTTTON;
 
  
-
-    public event System.Action OnRefreshUI;
-    public event System.Action<UpgradeData> OnRefreshUpgradeUI;
-    public event System.Action<UpgradeData.UpgradeType> OnReachMaxUpgrade;
-  //  public event System.Action OnDroneUpgradePurchased;
     public event System.Action OnMultiplyerFlowerPurchased;
+
+
+    private void Awake()
+    {
+        foreach (var upgrade in upgrades)
+        {
+            runtimeData[upgrade] = new UpgradeRuntimeData(upgrade);
+        }
+    }
+    public UpgradeRuntimeData GetRuntimeData(UpgradeData upgrade)
+        { return runtimeData[upgrade]; }
 
 
     void Start()
     {           
         moneyHandler = FindFirstObjectByType<MoneyHandler>();
-       RefreshUpgradeUI(SpeedUpgradeData);
-       RefreshUpgradeUI(GrowthUpgradeData);
-       RefreshUpgradeUI(EarningUpgradeData);
-
     }
 
-    public void MaxUpgradeReached(UpgradeData.UpgradeType upgradeType)
+    private void OnEnable()
     {
-        OnReachMaxUpgrade?.Invoke(upgradeType);
+        UpgradesEventBus.OnUpgradePurchased += PurchaseUpgrade;
     }
-
-    public void RefreshUI()
+    private void OnDisable()
     {
-       OnRefreshUI?.Invoke();     
-    }
-    public void RefreshUpgradeUI(UpgradeData upgrade)
-    {
-        OnRefreshUpgradeUI?.Invoke(upgrade);
-    }
-    void Update()
-    {
-        MoneyCount.text = Mathf.Round(moneyHandler.GetMoney).ToString();
-       
-    }
-   
-
-    public void SpeedIncreaseUpgradeButton()
-    {    
-        PurchaseUpgrade(speedUpgradeData);
-    }
-    public void GrowthIncreaseUpgradeButton()
-    {
-        PurchaseUpgrade(growthUpgradeData);       
-    }
-    public void EarningIncreaseUpgradeButton()
-    {
-        PurchaseUpgrade(earningUpgradeData);               
+        UpgradesEventBus.OnUpgradePurchased -= PurchaseUpgrade;
         
     }
+
     public void HanldeMultiplyerFlowerPurchaseMethod()
     {
         OnMultiplyerFlowerPurchased?.Invoke();
@@ -99,27 +69,22 @@ public class Upgrades : MonoBehaviour
     }
     public void BuyDroneSpeedUpgradeButton()
     {
-       PurchaseUpgrade(droneSpeedUpgradeData);     
+   //    PurchaseUpgrade(droneSpeedUpgradeData);     
     }
-
+    
     public void PurchaseUpgrade(UpgradeData upgrade)
     {
-     
-        if (moneyHandler.GetMoney < upgrade.CurrentCost)
+
+        if (moneyHandler.GetMoney <= runtimeData[upgrade].CurrentCost)
+        {
+       
             return;
-
-        if (upgrade.IsMaxUpgradeReached()) { 
-           MaxUpgradeReached(upgrade.Type);
-        return;
         }
+        
+        moneyHandler.RemoveMoney(runtimeData[upgrade].CurrentCost);
 
-        moneyHandler.RemoveMoney(upgrade.CurrentCost);
-
-        upgrade.IncreaseValue();
-        upgrade.IncreaseCost();
-
-      
-        RefreshUpgradeUI(upgrade);
+        runtimeData[upgrade].Upgrade();
+ 
     }
  
 }

@@ -3,10 +3,7 @@ using UnityEngine;
 
 public static class GameplayEventBus
 {
-   // public static event Action OnGrassCut; //later
-
-
-
+    // public static event Action OnGrassCut; //later
 
 
 }
