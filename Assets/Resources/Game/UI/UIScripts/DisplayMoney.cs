@@ -1,5 +1,6 @@
 
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DisplayMoney : MonoBehaviour
@@ -12,7 +13,7 @@ public class DisplayMoney : MonoBehaviour
     }
     private void Update()
     {
-        moneyText.text = m_MoneyHandler.GetMoney.ToString();
+        moneyText.text = Mathf.Round(m_MoneyHandler.GetMoney).ToString();
     }
 
 }

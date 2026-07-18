@@ -15,4 +15,10 @@ public static class UpgradesEventBus
     {
         OnMaxLelevUpgradePurchased?.Invoke(upgradeData);
     }
+
+
+    public static event Action OnDroneUpgradePurchased;
+    public static void RaiseDroneUpgradePurchased() {
+    OnDroneUpgradePurchased?.Invoke();
+    }
 }

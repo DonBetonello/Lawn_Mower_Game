@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a9a283018728046a6c59778a29fbe2, type: 3}
   m_Name: GrassGrowthUpgradeData
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
+  statType: 4
+  specialUpgradeType: 0
   Name: Grass Growth
-  IncreaseAmount: 1
-  StartValue: 1
+  IncreaseAmount: -0.5
+  ValueMeasurment: s.
+  StartValue: 5
   StartLevel: 0
   MaxLevel: 5
   StartCost: 140

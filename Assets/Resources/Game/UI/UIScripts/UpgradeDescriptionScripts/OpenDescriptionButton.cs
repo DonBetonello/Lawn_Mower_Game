@@ -25,7 +25,7 @@ public class OpenDescriptionButton : MonoBehaviour
 
     public void OnClick()
     {
-        var myRect = GetComponent<RectTransform>();
+        var  myRect =  GetComponent<RectTransform>();
 
         
         if (DescriptionState.currentTarget == myRect)

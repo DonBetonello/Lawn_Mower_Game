@@ -5,20 +5,14 @@ public class BuyUpgradeButton : MonoBehaviour
 {
     private UpgradeData upgradeData;
 
-    private void OnEnable()
-    {
-        UIEventBus.OnUpgradeDescriptionOpened += GetCurrentUpgradeData;
-    }
-    private void OnDisable()
-    {
-        UIEventBus.OnUpgradeDescriptionOpened += GetCurrentUpgradeData;
- 
-    }
-   private void GetCurrentUpgradeData(GameObject go, UpgradeData currentUpgradeData) //This method is solely used to get current upgradeRuntimeData
+   
+   public void GetCurrentUpgradeData(UpgradeData currentUpgradeData) //This method is solely used to get current upgradeData
     { upgradeData = currentUpgradeData; }
 
 
     private void OnUpgradePurchased(UpgradeData upgradeData) {
+
+        if (upgradeData == null) { Debug.LogError("UpgradeData was not provided"); return; }
         UpgradesEventBus.RaiseUpgradePurchased(upgradeData);
         UIEventBus.RaiseUpgradeDataRefresh(upgradeData);
     
@@ -27,6 +21,7 @@ public class BuyUpgradeButton : MonoBehaviour
 
     public void OnClick()
     {
+        
         OnUpgradePurchased(upgradeData);    
     }
 }

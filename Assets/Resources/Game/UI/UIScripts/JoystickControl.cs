@@ -12,23 +12,19 @@ public class JoystickControl : MonoBehaviour
     [SerializeField] private ParticleSystem Moving_Lawnmover_Smoke_Particle;
     [SerializeField] public Animator Moving_Lawnmover_Animatior;
 
-    private Upgrades upgrades;
-
-    [SerializeField] private UpgradeData upgradeData;
+    private GameManager gameManager;
 
     private float IsMoving;
-    //  [SerializeField] public Animator Moving_Lawnmover_Animatior;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
-        upgrades = FindFirstObjectByType<Upgrades>();
+        gameManager = FindFirstObjectByType<GameManager>();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        _moveSpeed = upgrades.GetRuntimeData(upgradeData).CurrentValue; //Fix this
+        _moveSpeed = gameManager.Stats.GetStat(StatType.LawnMoverSpeed); 
         _rigidbody.linearVelocity = new Vector3(_joystick.Horizontal * _moveSpeed, _rigidbody.linearVelocity.y, _joystick.Vertical * _moveSpeed);
 
         if (_joystick.Horizontal != 0 || _joystick.Vertical != 0)

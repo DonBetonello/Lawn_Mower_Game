@@ -10,13 +10,13 @@ public class UpgradeRuntimeData
     public int CurrentLevel;
     public float CurrentValue;
     public float CurrentCost;
-
+    public string ValueMeasurment;
     public string Description;
 
     public UpgradeRuntimeData(UpgradeData config)
     {
         Config = config;
-
+        ValueMeasurment = config.ValueMeasurment;
         UpgradeName = config.Name;
         CurrentLevel = 0;
         CurrentValue = config.StartValue;

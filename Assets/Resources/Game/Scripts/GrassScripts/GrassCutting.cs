@@ -10,6 +10,7 @@ public class GrassCutting : MonoBehaviour
     [SerializeField] private bool isGrassGrowing = false;
     [SerializeField] private float GrassRegrowTimer = 0;
     
+    private GameManager gameManager;
 
     private MoneyHandler moneyHandler;
 
@@ -30,8 +31,11 @@ public class GrassCutting : MonoBehaviour
         upgrades = FindFirstObjectByType<Upgrades>();
         RandomizeGrassRotationAtStart();
     }
+    private void Awake()
+    {
+        gameManager = FindAnyObjectByType<GameManager>();
+    }
 
-    
     void FixedUpdate()
     {
         
@@ -44,7 +48,7 @@ public class GrassCutting : MonoBehaviour
         }
        
 
-        if (GrassRegrowTimer >= 5 - upgrades.GetRuntimeData(GrowthUpgradesData).CurrentValue)
+        if (GrassRegrowTimer >= gameManager.Stats.GetStat(StatType.GrassGrowthSpeed))
         {
             isGrassGrowing = false;
             GetGrassUp();

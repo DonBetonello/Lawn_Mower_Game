@@ -13,6 +13,7 @@ public class MoneyHandler : MonoBehaviour
 
     [SerializeField] private UpgradeData upgradesData;
     
+    GameManager gameManager;
 
     public float GetMoney => money;
 
@@ -49,7 +50,10 @@ public class MoneyHandler : MonoBehaviour
         flowerMultiplier = 2f;
     }
 
-
+    private void Awake()
+    {
+        gameManager = FindFirstObjectByType<GameManager>();
+    }
     private void Update()
     {
         if (flowerMultiplierTimer > 0f) {
@@ -59,7 +63,7 @@ public class MoneyHandler : MonoBehaviour
         {
             flowerMultiplier = 1f;
         }
-        earningUpgradeMultiplier = 1f + (upgrades.GetRuntimeData(upgradesData).CurrentValue * 0.1f); // Each level increases earnings by 10%
+        earningUpgradeMultiplier = 1f + (gameManager.Stats.GetStat(StatType.IncomeIncrease) * 0.01f); // Each level increases earnings by 10% 
         // Fix this
     }
 }

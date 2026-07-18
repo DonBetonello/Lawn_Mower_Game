@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 public class UpgradeDescriptionHandler : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class UpgradeDescriptionHandler : MonoBehaviour
     [SerializeField] Button BuyUpgradeButton;
     [SerializeField] TextMeshProUGUI BuyUpgradeButtonText;
 
+    [SerializeField] BuyUpgradeButton buyUpgradeButtonScript;
 
     private void Awake()
     {
@@ -42,6 +44,7 @@ public class UpgradeDescriptionHandler : MonoBehaviour
     private void OnUpgradeDescriptionOpened(GameObject upgradeDescription, UpgradeData upgradeData)
     {
         RefreshDescriptionData(upgradeData);
+        buyUpgradeButtonScript.GetCurrentUpgradeData(upgradeData);
     }
 
 
@@ -61,7 +64,7 @@ public class UpgradeDescriptionHandler : MonoBehaviour
 
             UpgradeDescription.text = upgradeRuntimeData.Description;
             UpgradeName.text = upgradeRuntimeData.UpgradeName;
-            UpgradeValueChange.text = currentValue.ToString() + " → " + futureValue.ToString();
+            UpgradeValueChange.text = currentValue.ToString() + upgradeRuntimeData.ValueMeasurment + " → " + futureValue.ToString() + upgradeRuntimeData.ValueMeasurment;
             UpgradeLevel.text = "Lvl: " + upgradeRuntimeData.CurrentLevel.ToString();
             UpgradePrice.text = Mathf.Round(upgradeRuntimeData.CurrentCost).ToString();
         }
@@ -74,7 +77,7 @@ public class UpgradeDescriptionHandler : MonoBehaviour
         float currentValue = upgradeRuntimeData.CurrentValue;
         UpgradeDescription.text = upgradeRuntimeData.Description;
         UpgradeName.text = upgradeRuntimeData.UpgradeName;
-        UpgradeValueChange.text = currentValue.ToString();
+        UpgradeValueChange.text = currentValue.ToString() + upgradeRuntimeData.ValueMeasurment;
         UpgradeLevel.text = "Lvl: " + upgradeRuntimeData.CurrentLevel.ToString();
         UpgradePrice.text = "";
 

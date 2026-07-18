@@ -1,13 +1,18 @@
 using UnityEngine;
 using static UnityEditorInternal.VersionControl.ListControl;
 
-public class DroneMovingScript : MonoBehaviour
+public class DroneMovingComponent : MonoBehaviour
 {
-
+  
     private Vector3 direction;
     private Vector3 reflectDirection;
-  
-    [SerializeField] private Upgrades upgrades;
+
+    private Drone drone;
+
+    private void Awake()
+    {
+        drone = GetComponentInParent<Drone>();
+    }
 
     private void Start()
     {
@@ -18,6 +23,7 @@ public class DroneMovingScript : MonoBehaviour
         if (collision.gameObject.GetComponent<IsFense>())
         {
             ReflectDirection();
+           
         }
     }
 
@@ -28,8 +34,9 @@ public class DroneMovingScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //remake drone later
+        transform.Translate(direction * drone.GetDroneRuntimeData().CurrentMovingSpeed * Time.deltaTime);
 
-     //   transform.Translate(direction * upgrades.DroneSpeedUpgradeData.Value * Time.deltaTime); //Fix this
         Ray VectorRay = new Ray(transform.position, direction * 10f);
         RaycastHit VectorHit;
         Debug.DrawRay(transform.position, direction * 10f, Color.red);
@@ -38,7 +45,6 @@ public class DroneMovingScript : MonoBehaviour
         {
             reflectDirection = Vector3.Reflect(direction, VectorHit.normal);
         }
-    
     }
 
 
