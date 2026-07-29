@@ -3,7 +3,7 @@ using DG.Tweening;
 
 public class UpgradeDescriptionOpeningAnimation : MonoBehaviour
 {
-    [SerializeField] private Vector3 descriptionBoardParameterers;
+     
 
     private Tween currentTween;
     private void OnEnable()
@@ -27,7 +27,7 @@ public class UpgradeDescriptionOpeningAnimation : MonoBehaviour
         rect.localScale = Vector3.zero;
 
         currentTween = DOTween.Sequence()
-            .Append(rect.DOScale(descriptionBoardParameterers, 0.2f).SetEase(Ease.OutBack));
+            .Append(rect.DOScale(Vector3.one, 0.2f).SetEase(Ease.OutBack));
     }
 
     private void PlayClosingAnimation(GameObject obj)

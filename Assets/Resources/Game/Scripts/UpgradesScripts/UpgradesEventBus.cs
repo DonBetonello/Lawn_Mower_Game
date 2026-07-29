@@ -10,6 +10,12 @@ public static class UpgradesEventBus
         OnUpgradePurchased?.Invoke(upgradeData);
     }
 
+    public static event Action<UpgradeData> OnUpgradeProcessed;
+    public static void RaiseUpgradeProcessed(UpgradeData upgradeData)
+    {
+        OnUpgradeProcessed?.Invoke(upgradeData);
+    }
+
     public static event Action<UpgradeData> OnMaxLelevUpgradePurchased;
     public static void RaiseMaxLevelUpgradePurchased(UpgradeData upgradeData)
     {

@@ -1,27 +1,43 @@
 using System;
 using UnityEngine;
+using DG.Tweening;
 
 public class OpenDescriptionButton : MonoBehaviour
 {
     [SerializeField] private UpgradeData upgradeData;
+    public UpgradeData UpgradeData => upgradeData;
     [SerializeField] private GameObject upgradeDescriptionObject;
     [SerializeField] private GameObject OnMaxUpgradeBackgroundChangeObject;
     private DescriptionPositioner positioner;
+    [SerializeField] private UpgradeUnlock upgradeUnlockHandler;
 
     private void Awake()
     {
         positioner = upgradeDescriptionObject.GetComponent<DescriptionPositioner>();
+        if (upgradeData.requiredUpgrades.Capacity > 0) { gameObject.transform.localScale = Vector3.zero; }
     }
 
     private void OnEnable()
     {
+        UpgradesEventBus.OnUpgradeProcessed += OnUnlocked;
         UpgradesEventBus.OnMaxLelevUpgradePurchased += OnMaxUpgradeReached;
     }
     private void OnDisable()
     {
+        UpgradesEventBus.OnUpgradeProcessed -= OnUnlocked;
         UpgradesEventBus.OnMaxLelevUpgradePurchased -= OnMaxUpgradeReached;
     }
 
+    private void OnUnlocked(UpgradeData data)
+    {
+        if(upgradeUnlockHandler == null) { return; }
+
+        if (upgradeUnlockHandler.CanUnlock(this.upgradeData))
+        {
+            gameObject.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+
+        }
+    }
 
     public void OnClick()
     {

@@ -11,6 +11,7 @@ public class DescriptionPositioner : MonoBehaviour
     public void Show(RectTransform target)
     {
        
+        description.localScale = new Vector2(1,1);
 
         Canvas.ForceUpdateCanvases();
 

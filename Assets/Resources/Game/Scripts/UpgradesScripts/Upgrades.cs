@@ -1,8 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 
 public class Upgrades : MonoBehaviour
 {
@@ -13,25 +10,28 @@ public class Upgrades : MonoBehaviour
 
     private Dictionary<UpgradeData, UpgradeRuntimeData> runtimeData = new Dictionary<UpgradeData, UpgradeRuntimeData>();
 
-    private MoneyHandler moneyHandler;
 
-    private GameManager gameManager;
-    private SpawnFactory spawnFactory;
+    [Header("References")]
+   [SerializeField]private MoneyHandler moneyHandler;
 
-    private void Awake()
+    [SerializeField]private Stat statManager;
+    [SerializeField]private SpawnFactory spawnFactory;
+    [SerializeField]private RandomSpawningPositionProvider spawningPositionProvider;
+
+    [SerializeField] private UpgradeUnlock upgradeUnlockHandler;
+
+    private void Start()
     {
-        moneyHandler = FindFirstObjectByType<MoneyHandler>();
-        gameManager = FindAnyObjectByType<GameManager>();
-        spawnFactory = FindAnyObjectByType<SpawnFactory>();
+     //   spawningPositionProvider = FindFirstObjectByType<RandomSpawningPositionProvider>();
+    //    moneyHandler = FindFirstObjectByType<MoneyHandler>();
+     //   statManager = FindAnyObjectByType<Stat>();
+     //   spawnFactory = FindAnyObjectByType<SpawnFactory>();
         foreach (var upgrade in upgrades)
         {
             runtimeData[upgrade] = new UpgradeRuntimeData(upgrade);
+            statManager.AddStat(upgrade.statType, upgrade.StartValue); 
         }
-        foreach (var upgrade in upgrades) {
-            gameManager.Stats.AddStat(upgrade.statType, upgrade.StartValue);
-           
-        }
-        
+      
     }
     public UpgradeRuntimeData GetRuntimeData(UpgradeData upgrade)
     {
@@ -57,10 +57,11 @@ public class Upgrades : MonoBehaviour
         }
         
         moneyHandler.RemoveMoney(runtimeData[upgrade].CurrentCost);
-
+        upgradeUnlockHandler.Unlock(upgrade);
         runtimeData[upgrade].Upgrade();
-        gameManager.Stats.AddStat(upgrade.statType, runtimeData[upgrade].CurrentValue);
-        if (upgrade.specialUpgradeType != SpecialUpgradeType.None) { spawnFactory.Create(upgrade.specialUpgradeType, gameManager.Stats); }
+        statManager.AddStat(upgrade.statType, runtimeData[upgrade].CurrentValue);
+        if (upgrade.specialUpgradeType != SpecialUpgradeType.None) { spawnFactory.Create(upgrade.specialUpgradeType, statManager, spawningPositionProvider.GetRandomPosition()); }
+        UpgradesEventBus.RaiseUpgradeProcessed(upgrade);
     }
 
 }

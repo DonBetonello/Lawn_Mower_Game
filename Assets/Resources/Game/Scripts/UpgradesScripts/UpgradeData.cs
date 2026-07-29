@@ -1,8 +1,13 @@
+using NUnit.Framework;
 using UnityEngine;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "UpgradeData", menuName = "Scriptable Objects/Upgrade Data")]
 public class UpgradeData : ScriptableObject
 {
+    [Tooltip("Upgrades unique id")]
+    public string upgradeID;
+
     [Tooltip("Enum to describe the stat that upgrade is increasing. Can be 'None'")]
     public StatType statType;
 
@@ -35,4 +40,8 @@ public class UpgradeData : ScriptableObject
 
     [Tooltip("Description of what upgrade is supposed to do")]
     public string Description;
+
+    [Tooltip("List of upgrades requiered to unlock next upgrade")]
+    public List<UpgradeData> requiredUpgrades;
+   
 }

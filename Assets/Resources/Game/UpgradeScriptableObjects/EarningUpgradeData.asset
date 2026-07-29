@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a9a283018728046a6c59778a29fbe2, type: 3}
   m_Name: EarningUpgradeData
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
+  upgradeID: 5
   statType: 5
   specialUpgradeType: 0
   Name: QuickCash
@@ -23,3 +24,4 @@ MonoBehaviour:
   StartCost: 200
   CostMultiplier: 1.2
   Description: Increase income from cutting grass
+  requiredUpgrades: []

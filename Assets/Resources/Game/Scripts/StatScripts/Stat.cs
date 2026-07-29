@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stat 
+public class Stat :MonoBehaviour
 {
     private Dictionary<StatType, float> stats = new();
 

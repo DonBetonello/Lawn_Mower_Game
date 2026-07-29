@@ -13,6 +13,10 @@ public class UpgradeRuntimeData
     public string ValueMeasurment;
     public string Description;
 
+    public StatType StatType;
+
+    public bool IsUnlocked;
+
     public UpgradeRuntimeData(UpgradeData config)
     {
         Config = config;
@@ -22,6 +26,8 @@ public class UpgradeRuntimeData
         CurrentValue = config.StartValue;
         CurrentCost = config.StartCost;
         Description = config.Description;
+        StatType = config.statType;
+        IsUnlocked = false;
     }
 
     public bool CanUpgrade()
@@ -44,7 +50,7 @@ public class UpgradeRuntimeData
         
         if (!CanUpgrade()) { return; }
           
-        
+        IsUnlocked = true;
         CurrentLevel++;
         CurrentValue += Config.IncreaseAmount;
         CurrentCost *= Config.CostMultiplier;

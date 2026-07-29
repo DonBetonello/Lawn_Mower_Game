@@ -1,100 +1,60 @@
 using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class GrassCutting : MonoBehaviour
+public class GrassCuttingHandler : MonoBehaviour
 {
+    private float GrassRegrowTimer = 0;
 
-
-    [SerializeField] private bool isGrassGrowing = false;
-    [SerializeField] private float GrassRegrowTimer = 0;
-    
-    private GameManager gameManager;
-
-    private MoneyHandler moneyHandler;
-
-    private Upgrades upgrades;
-
-
-    [SerializeField] private bool isGrassDownBool;
-    [SerializeField] private float GrassGoToPosition;
-    [SerializeField] private float GrassStartPosition = -0.5f;
-
-    [SerializeField] private UpgradeData GrowthUpgradesData;
-
-    public static event System.Action OnGrassGotCut; // Event to notify when the grass is cut
-
+    [Tooltip("Add any layer thet should PREVENT grass from growing if placed above")]
+    [SerializeField] private LayerMask blockingLayers;
+    private Grass grass;
+    private bool isCut = false;
 
     void Start()
     {
-        upgrades = FindFirstObjectByType<Upgrades>();
-        RandomizeGrassRotationAtStart();
+        grass = GetComponent<Grass>();
     }
-    private void Awake()
+
+    void Update()
     {
-        gameManager = FindAnyObjectByType<GameManager>();
+        if (!isCut) return;
+
+        GrassRegrowTimer += Time.deltaTime;
+
+        if (isReadyToGrow())
+        {
+            RegrowGrass();
+        }
     }
 
-    void FixedUpdate()
-    {
-        
-        if (isGrassDownBool == true)
-        {
-
-            GetGrassDown();
-           
-            isGrassDownBool = false;
-        }
-       
-
-        if (GrassRegrowTimer >= gameManager.Stats.GetStat(StatType.GrassGrowthSpeed))
-        {
-            isGrassGrowing = false;
-            GetGrassUp();
-            GrassRegrowTimer = 0;
-        }
-        
-        
-        if (isGrassGrowing == true)
-        {
-            GrassRegrowTimer += 1 * Time.deltaTime;
-        }
-       
-    }
     void OnTriggerEnter(Collider collision)
     {
-       /* if (Pick_Up_Flower_Money_Multiplyer.flower_Money_Multiplyer == true)
-        {
-            Flower_Multiplyer = 2f;
-        }
-        else 
-        {
-            Flower_Multiplyer = 1f;
-        }*/
-        isGrassGrowing = true;
-        isGrassDownBool = true;
-        OnGrassGotCut?.Invoke(); // Notify subscribers that the grass has been cut
-    }
-    private void OnTriggerExit(Collider collision)
-    {
-        isGrassGrowing = true;
-        isGrassDownBool = true;
-    }
-    private void RandomizeGrassRotationAtStart()
-    {
-        transform.DORotate(new Vector3(-90, Random.Range(0, 360), 0), 0);
-    }
-    private void GetGrassDown()
-    {
-        transform.DOMove(new Vector3(transform.position.x, GrassGoToPosition, transform.position.z), 1);
-        transform.DORotate(new Vector3(-90, Random.Range(0, 360), 0), 0.5f);
-    }
-    private void GetGrassUp()
-    {
-        transform.DOMove(new Vector3(transform.position.x, GrassStartPosition, transform.position.z), 1);
-        transform.DORotate(new Vector3(-90, Random.Range(0, 360), 0), 1.5f);
+        CutGrass();
     }
 
+  
+
+    public void CutGrass()
+    {
+
+        isCut = true;
+        GrassRegrowTimer = 0;
+
+        GameplayEventBus.RaiseGrassCut(grass);
+    }
+
+    public void RegrowGrass()
+    {
+        isCut = false;
+        GrassRegrowTimer = 0;
+
+        GameplayEventBus.RaisedGrassRegrew(grass);
+    }
+   
+    public bool isReadyToGrow()
+    {
+        if (Physics.CheckSphere(new Vector3(grass.transform.position.x, grass.transform.position.y + 2, grass.transform.position.z), 0.5f, blockingLayers)) { return false; } 
+
+        return GrassRegrowTimer >= grass.GetRuntimeData().CurrentRegrowTime;
+    }
 }
-

@@ -8,5 +8,7 @@ public enum StatType
     LawnMoverSpeed,
     GrassGrowthSpeed,
     IncomeIncrease,
-
+    FlowerMultiplier,
+    FlowerMultiplierLenght,
+    FlowerMultiplierRespawnTime,
 }

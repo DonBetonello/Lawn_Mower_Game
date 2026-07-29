@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DroneData
   m_EditorClassIdentifier: Assembly-CSharp::DroneData
   startSpeed: 1
-  startSize: 0
+  startSize: 1

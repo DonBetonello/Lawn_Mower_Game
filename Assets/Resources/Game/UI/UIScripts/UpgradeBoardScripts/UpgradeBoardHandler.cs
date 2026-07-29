@@ -4,6 +4,8 @@ public class UpgradeBoardHandler : MonoBehaviour
 {
     [SerializeField] private GameObject UpgradeBoard;
 
+    [SerializeField] private GameObject joyStick;
+
     private bool isUpgradeBoardActive = false;
 
     public void OnUpgradeBoardButtonClicked()
@@ -14,10 +16,10 @@ public class UpgradeBoardHandler : MonoBehaviour
     private void SetUpgradeBoardActive(bool isActive)
     {
         isUpgradeBoardActive = isActive;
-      
+        joyStick.SetActive(!isActive);
         if (isActive)
-            UIEventBus.RaiseUpgradeBoardOpened(UpgradeBoard);
+         UIEventBus.RaiseUpgradeBoardOpened(UpgradeBoard);  
         else
-            UIEventBus.RaiseUpgradeBoardClosed(UpgradeBoard);
+         UIEventBus.RaiseUpgradeBoardClosed(UpgradeBoard); 
     }
 }

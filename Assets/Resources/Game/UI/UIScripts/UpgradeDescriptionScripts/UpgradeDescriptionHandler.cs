@@ -15,6 +15,8 @@ public class UpgradeDescriptionHandler : MonoBehaviour
 
     private Upgrades upgrades;
 
+    private Stat statsManager;
+
     [SerializeField] Button BuyUpgradeButton;
     [SerializeField] TextMeshProUGUI BuyUpgradeButtonText;
 
@@ -23,6 +25,7 @@ public class UpgradeDescriptionHandler : MonoBehaviour
     private void Awake()
     {
         upgrades = FindFirstObjectByType<Upgrades>();
+        
         UpgradeDescription = UpgradeDescriptionObject.transform.Find("Description").GetComponent<TextMeshProUGUI>();
         UpgradeName = UpgradeDescriptionObject.transform.Find("Name").GetComponent<TextMeshProUGUI>();
         UpgradeValueChange = UpgradeDescriptionObject.transform.Find("ValueChange").GetComponent<TextMeshProUGUI>();

@@ -13,9 +13,9 @@ TagManager:
   - Ground
   - Water
   - UI
-  - LawnMoverLayer
-  - DroneLayer
-  - 
+  - LawnMover
+  - Drone
+  - Fence
   - 
   - 
   - 

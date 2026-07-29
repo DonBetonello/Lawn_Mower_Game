@@ -3,48 +3,35 @@ using static UnityEditorInternal.VersionControl.ListControl;
 
 public class DroneMovingComponent : MonoBehaviour
 {
-  
-    private Vector3 direction;
-    private Vector3 reflectDirection;
+
+    private Vector3 direction = new Vector3(0.3f, 0, 0.3f);
+    [SerializeField] private Rigidbody rigidBody;
 
     private Drone drone;
 
     private void Awake()
     {
         drone = GetComponentInParent<Drone>();
-    }
 
-    private void Start()
-    {
-        direction = new Vector3(0.3f, 0, 0.3f);
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.GetComponent<IsFense>())
-        {
-            ReflectDirection();
-           
-        }
-    }
-
-    void ReflectDirection()
-    {
-        direction = reflectDirection;
-    }
-
     private void FixedUpdate()
     {
-        //remake drone later
-        transform.Translate(direction * drone.GetDroneRuntimeData().CurrentMovingSpeed * Time.deltaTime);
+        RaycastHit hit;
 
-        Ray VectorRay = new Ray(transform.position, direction * 10f);
-        RaycastHit VectorHit;
-        Debug.DrawRay(transform.position, direction * 10f, Color.red);
-        Debug.DrawRay(transform.position, reflectDirection * 100f, Color.blue);
-        if (Physics.Raycast(VectorRay, out VectorHit))
+        if (Physics.Raycast(rigidBody.position, direction, out hit, 1f))
         {
-            reflectDirection = Vector3.Reflect(direction, VectorHit.normal);
+            if (hit.collider.gameObject.name == "Fence")
+            {
+                direction = Vector3.Reflect(direction, hit.normal).normalized;
+            }
         }
+        Move();
+    }
+
+    private void Move()
+    {
+        rigidBody.MovePosition(rigidBody.position + direction * drone.GetDroneRuntimeData().CurrentMovingSpeed * Time.fixedDeltaTime);
+
     }
 
 

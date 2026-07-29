@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -7,13 +8,13 @@ public class MoneyHandler : MonoBehaviour
     
     [SerializeField] private float amount;
     private float earningUpgradeMultiplier = 1.0f; // Example multiplier for earning upgrades
-    private float flowerMultiplier = 1.0f; // Example multiplier for flower upgrades
-    private float flowerMultiplierTimer = 0f; // Timer for flower multiplier duration
-   [SerializeField] private Upgrades upgrades;
 
-    [SerializeField] private UpgradeData upgradesData;
+  
     
-    GameManager gameManager;
+
+    private float flowerMultiplier = 1;
+
+    Stat statManager;
 
     public float GetMoney => money;
 
@@ -31,39 +32,40 @@ public class MoneyHandler : MonoBehaviour
 
 
     private void OnEnable(){
-        GrassCutting.OnGrassGotCut += OnGrassCut;
+        GameplayEventBus.OnGrassCut += OnGrassCut;
+        GameplayEventBus.OnMultiplyerFlowerPickedUp += OnFlowerMultiplyerPickedUp;
     }
 
     private void OnDisable()
     {
-        GrassCutting.OnGrassGotCut -= OnGrassCut;
+        GameplayEventBus.OnGrassCut -= OnGrassCut;
+        GameplayEventBus.OnMultiplyerFlowerPickedUp -= OnFlowerMultiplyerPickedUp;
     }
 
-    private void OnGrassCut()  // This method is called when the grass is cut, and it should add money to the player's total.  
+    private void OnGrassCut(Grass grass)  // This method is called when the grass is cut, and it should add money to the player's total.  
     {
         AddMoney(amount);
     }
 
-    private void OnFlowerMultiplyerPickedUp(float timer) // This method is called when the flower multiplier is picked up, and it should set the flower multiplier and start the timer. 
+    private void OnFlowerMultiplyerPickedUp(float timer, float multiplier, float respawnTime) // This method is called when the flower multiplier is picked up, and it should set the flower multiplier and start the timer. 
     {
-        flowerMultiplierTimer += timer;
-        flowerMultiplier = 2f;
+        StartCoroutine(ManageFlowerMultiplier(timer, multiplier)); 
     }
 
     private void Awake()
     {
-        gameManager = FindFirstObjectByType<GameManager>();
+        statManager = FindFirstObjectByType<Stat>();
     }
     private void Update()
     {
-        if (flowerMultiplierTimer > 0f) {
-            flowerMultiplierTimer -= Time.deltaTime;
-        }
-        else
-        {
-            flowerMultiplier = 1f;
-        }
-        earningUpgradeMultiplier = 1f + (gameManager.Stats.GetStat(StatType.IncomeIncrease) * 0.01f); // Each level increases earnings by 10% 
-        // Fix this
+        
+        earningUpgradeMultiplier = 1f + (statManager.GetStat(StatType.IncomeIncrease) * 0.01f); // Each level increases earnings by 10% 
+        
+    }
+    private IEnumerator ManageFlowerMultiplier(float multiplierLenght, float multiplier)
+    {        
+        flowerMultiplier = multiplier;
+        yield return new WaitForSeconds(multiplierLenght);
+        flowerMultiplier = 1;
     }
 }

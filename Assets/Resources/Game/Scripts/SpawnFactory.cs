@@ -18,11 +18,11 @@ public class SpawnFactory : MonoBehaviour
     };
     }
 
-    public ISpawnable Create(SpecialUpgradeType type, Stat stat)
+    public ISpawnable Create(SpecialUpgradeType type, Stat stat, Vector3 spawnPosition)
     {
         var prefab = prefabs[type];
         var obj = Instantiate(prefab);
-
+        obj.transform.position = spawnPosition;
         var spawnable = obj.GetComponent<ISpawnable>();
         spawnable.Initialize(stat);
 

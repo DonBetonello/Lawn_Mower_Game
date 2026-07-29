@@ -4,7 +4,7 @@ using UnityEngine;
 public class UIEventBus : MonoBehaviour
 {
 
-   
+
     public static event Action<GameObject> OnUpgradeBoardOpened;
     public static event Action<GameObject> OnUpgradeBoardClosed;
 
@@ -22,9 +22,9 @@ public class UIEventBus : MonoBehaviour
     public static event Action<GameObject, UpgradeData> OnUpgradeDescriptionOpened;
     public static event Action<GameObject> OnUpgradeDescriptionClosed;
 
-    public static void RaiseUpgradeDescriptionOpened(GameObject upgradeDescription, UpgradeData upgradeData )
+    public static void RaiseUpgradeDescriptionOpened(GameObject upgradeDescription, UpgradeData upgradeData)
     {
-        OnUpgradeDescriptionOpened?.Invoke(upgradeDescription,  upgradeData);
+        OnUpgradeDescriptionOpened?.Invoke(upgradeDescription, upgradeData);
     }
 
     public static void RaiseUpgradeDescriptionClosed(GameObject upgradeDescription)
@@ -41,6 +41,10 @@ public class UIEventBus : MonoBehaviour
         OnUpgradeDataRefresh?.Invoke(upgradeData);
     }
 
+    public static event Action OnUpgradeUnlocked;
+    public static void RaiseUpgradeUnlocked()
+    {
+        OnUpgradeUnlocked?.Invoke();
+    }
 
-   
 }
