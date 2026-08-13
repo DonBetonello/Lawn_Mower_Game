@@ -27,4 +27,9 @@ public static class UpgradesEventBus
     public static void RaiseDroneUpgradePurchased() {
     OnDroneUpgradePurchased?.Invoke();
     }
+
+    public static event Action<UpgradeData> OnSpecialUpgradePurchased;
+    public static void RaiseSpecialUpgradePurchased(UpgradeData upgradeData) {
+        OnSpecialUpgradePurchased?.Invoke(upgradeData);
+    }
 }

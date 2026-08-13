@@ -6,12 +6,12 @@ public class GrassRuntimeData : IUpgradable
     private float currentRegrowTime;
     public float CurrentRegrowTime => currentRegrowTime;
 
-    private bool isCurrentlyGold;
+    private bool isGolden;
 
     public GrassRuntimeData (GrassData grassData)
     { 
         currentRegrowTime = grassData.StartRegrowTime;
-        isCurrentlyGold = grassData.IsGold;
+        isGolden = grassData.IsGold;
     }
 
     public void Upgrade(StatType type, float NewValue)

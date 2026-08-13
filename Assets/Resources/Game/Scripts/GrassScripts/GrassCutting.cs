@@ -7,13 +7,9 @@ public class GrassCuttingHandler : MonoBehaviour
 
     [Tooltip("Add any layer thet should PREVENT grass from growing if placed above")]
     [SerializeField] private LayerMask blockingLayers;
-    private Grass grass;
+    [SerializeField]private Grass grass;
     private bool isCut = false;
 
-    void Start()
-    {
-        grass = GetComponent<Grass>();
-    }
 
     void Update()
     {
@@ -21,7 +17,7 @@ public class GrassCuttingHandler : MonoBehaviour
 
         GrassRegrowTimer += Time.deltaTime;
 
-        if (isReadyToGrow())
+        if (IsReadyToGrow())
         {
             RegrowGrass();
         }
@@ -29,7 +25,8 @@ public class GrassCuttingHandler : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        CutGrass();
+        if(collision.gameObject.transform.CompareTag("LawnMover") || collision.gameObject.transform.CompareTag("Drone")) { CutGrass(); }
+        
     }
 
   
@@ -48,13 +45,17 @@ public class GrassCuttingHandler : MonoBehaviour
         isCut = false;
         GrassRegrowTimer = 0;
 
-        GameplayEventBus.RaisedGrassRegrew(grass);
+        GameplayEventBus.RaiseGrassRegrew(grass);
     }
    
-    public bool isReadyToGrow()
+    public bool IsReadyToGrow()
     {
         if (Physics.CheckSphere(new Vector3(grass.transform.position.x, grass.transform.position.y + 2, grass.transform.position.z), 0.5f, blockingLayers)) { return false; } 
 
         return GrassRegrowTimer >= grass.GetRuntimeData().CurrentRegrowTime;
+    }
+    public void ForceRegrow()
+    {
+        RegrowGrass();
     }
 }

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49a9a283018728046a6c59778a29fbe2, type: 3}
+  m_Name: LawnSizeIncrease3UpgradeData
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
+  upgradeID: 12
+  statType: 0
+  specialUpgradeType: 6
+  Name: Bigger Lawn
+  IncreaseAmount: 1
+  ValueMeasurment: 
+  StartValue: 2
+  StartLevel: 0
+  MaxLevel: 1
+  StartCost: 10000
+  CostMultiplier: 0
+  Description: Increase the size of your lawn
+  requiredUpgrades:
+  - {fileID: 11400000, guid: 47bb2f3438f081249816727b9ec128a0, type: 2}

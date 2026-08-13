@@ -23,7 +23,7 @@ public class GrassParticlesObjectPool : MonoBehaviour
     {
         int getRandomParticle = Random.Range(0, particles.Length);
         GameObject particleObject = Instantiate(particles[getRandomParticle], poolParent);
-
+        particleObject.transform.Rotate(new Vector3(-90,0,0));  
         GrassParticle particle = particleObject.GetComponent<GrassParticle>();
         particle.SetPool(objectPool);    
 

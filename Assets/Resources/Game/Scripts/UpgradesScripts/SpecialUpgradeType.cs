@@ -6,5 +6,7 @@ public enum SpecialUpgradeType
     DroneBuying,
     FlowerBuying,
     GoldenZoneBuying,
-
+    LawnIncrease1,
+    LawnIncrease2,
+    LawnIncrease3,
 }

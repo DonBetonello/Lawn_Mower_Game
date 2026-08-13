@@ -7,7 +7,7 @@ public static class GameplayEventBus
     public static void RaiseGrassCut(Grass grass) { OnGrassCut?.Invoke(grass); }
 
     public static event Action<Grass> OnGrassRegrew;
-    public static void RaisedGrassRegrew(Grass grass) { OnGrassRegrew?.Invoke(grass); }
+    public static void RaiseGrassRegrew(Grass grass) { OnGrassRegrew?.Invoke(grass); }
 
     public static event Action<float, float, float> OnMultiplyerFlowerPickedUp;
     public static void RaiseMultiplyerFlowerPickedUp(float multiplierLenght, float multiplyer, float respawnTime) { OnMultiplyerFlowerPickedUp?.Invoke(multiplierLenght, multiplyer, respawnTime); }

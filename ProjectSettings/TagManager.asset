@@ -5,7 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Grass
-  - Cloud_Destroy_Wall
+  - LawnMover
+  - Drone
+  - Fence
   layers:
   - Default
   - TransparentFX

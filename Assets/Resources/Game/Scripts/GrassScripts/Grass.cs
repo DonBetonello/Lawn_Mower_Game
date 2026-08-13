@@ -9,11 +9,24 @@ public class Grass : MonoBehaviour
 
     private Stat statManager;
 
+
+    private int GridX;
+    private int GridZ;
+
+    public void SetGridPosition(int x, int z)
+    {
+        GridX = x;
+        GridZ = z;
+    }
+
     private void Awake()
-    {  
-        statManager = FindFirstObjectByType<Stat>();
+    {
         runtimeData = new GrassRuntimeData(grassData);
-       
+    }
+    public void Init(Stat stat)
+    {     
+        statManager = stat;
+      
     }
 
     private void OnEnable()
@@ -26,7 +39,10 @@ public class Grass : MonoBehaviour
     }
 
     private void UpgradeGrass(UpgradeData upgradeData) {
+        if (runtimeData == null)
+            return;
+
         runtimeData.Upgrade(upgradeData.statType, statManager.GetStat(upgradeData.statType));
     }
-    
+   
 }

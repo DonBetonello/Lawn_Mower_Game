@@ -20,7 +20,7 @@ public class DroneMovingComponent : MonoBehaviour
 
         if (Physics.Raycast(rigidBody.position, direction, out hit, 1f))
         {
-            if (hit.collider.gameObject.name == "Fence")
+            if (hit.collider.gameObject.CompareTag("Fence"))
             {
                 direction = Vector3.Reflect(direction, hit.normal).normalized;
             }

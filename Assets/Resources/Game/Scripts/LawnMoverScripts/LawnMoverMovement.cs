@@ -11,7 +11,7 @@ public class LawnMoverMovement: MonoBehaviour
     [SerializeField] private float maxSpeed = 5f;
     [SerializeField] private float acceleration = 10f;
     [SerializeField] private float rotationSpeed = 10f;
-    [SerializeField] private float drag = 5f;
+ 
     private Stat statsManager;
 
     private Vector3 currentVelocity;

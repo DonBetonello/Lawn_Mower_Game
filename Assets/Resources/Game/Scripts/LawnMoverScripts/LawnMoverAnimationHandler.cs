@@ -38,7 +38,7 @@ public class LawnMoverAnimationHandler : MonoBehaviour
             
             .SetEase(Ease.InOutSine)
             
-            .SetLoops(-1, LoopType.Yoyo));
+            .SetLoops(100, LoopType.Yoyo));
     }
 
     public void StopMovingAnimation() {

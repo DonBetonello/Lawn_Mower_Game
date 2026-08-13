@@ -67,12 +67,12 @@ public class FlowerMultiplierTextHandler : MonoBehaviour
 
 
             .AppendInterval(multiplierTimeLenght)
-
-
-            //Dissapear
-            .Append(rect.DOScale(0f, 0.15f).SetEase(Ease.Linear));
+            .AppendCallback(() => StopPulse())
             
-          //  .OnComplete(() => textObject.SetActive(false));
+            //Dissapear
+            .Append(rect.DOScale(0f, 0.15f).SetEase(Ease.Linear))
+            
+            .OnComplete(() => textObject.SetActive(false));
     }
     public void StartPulse()
     {
@@ -86,5 +86,9 @@ public class FlowerMultiplierTextHandler : MonoBehaviour
             .DOScale(1.1f, 0.5f)
             .SetEase(Ease.InOutSine)
             .SetLoops(-1, LoopType.Yoyo);
+    }
+    private void StopPulse()
+    {
+        pulseTween?.Kill();
     }
 }

@@ -16,7 +16,7 @@ public class Upgrades : MonoBehaviour
 
     [SerializeField]private Stat statManager;
     [SerializeField]private SpawnFactory spawnFactory;
-    [SerializeField]private RandomSpawningPositionProvider spawningPositionProvider;
+   
 
     [SerializeField] private UpgradeUnlock upgradeUnlockHandler;
 
@@ -51,7 +51,7 @@ public class Upgrades : MonoBehaviour
     public void PurchaseUpgrade(UpgradeData upgrade)
     {
         if (runtimeData[upgrade] == null) { Debug.LogError("Upgrade data is not provided"); return; }
-        if (moneyHandler.GetMoney <= runtimeData[upgrade].CurrentCost)
+        if (moneyHandler.GetMoney < runtimeData[upgrade].CurrentCost)
         {
             return;
         }
@@ -60,7 +60,8 @@ public class Upgrades : MonoBehaviour
         upgradeUnlockHandler.Unlock(upgrade);
         runtimeData[upgrade].Upgrade();
         statManager.AddStat(upgrade.statType, runtimeData[upgrade].CurrentValue);
-        if (upgrade.specialUpgradeType != SpecialUpgradeType.None) { spawnFactory.Create(upgrade.specialUpgradeType, statManager, spawningPositionProvider.GetRandomPosition()); }
+      //  if (upgrade.specialUpgradeType != SpecialUpgradeType.None) { spawnFactory.Create(upgrade.specialUpgradeType, statManager, spawningPositionProvider.GetRandomPosition()); }
+        if(upgrade.specialUpgradeType != SpecialUpgradeType.None) { UpgradesEventBus.RaiseSpecialUpgradePurchased(upgrade); }
         UpgradesEventBus.RaiseUpgradeProcessed(upgrade);
     }
 
