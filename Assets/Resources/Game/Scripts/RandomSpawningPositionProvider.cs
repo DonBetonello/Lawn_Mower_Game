@@ -5,8 +5,8 @@ using UnityEngine;
 public class RandomSpawningPositionProvider : MonoBehaviour
 {
     [Header("Spawn Area")]
-    [SerializeField] private Vector3 minCorner;
-    [SerializeField] private Vector3 maxCorner;
+    [SerializeField] private GameObject minCorner;
+    [SerializeField] private GameObject maxCorner;
 
     [Header("Collision Check")]
     [SerializeField] private float checkRadius = 1f;
@@ -31,9 +31,9 @@ public class RandomSpawningPositionProvider : MonoBehaviour
 
     private Vector3 GetRandomPoint()
     {
-        float x = Random.Range(minCorner.x, maxCorner.x);
-        float y = Random.Range(minCorner.y, maxCorner.y);
-        float z = Random.Range(minCorner.z, maxCorner.z);
+        float x = Random.Range(minCorner.transform.position.x, maxCorner.transform.position.x);
+        float y = Random.Range(minCorner.transform.position.y, maxCorner.transform.position.y);
+        float z = Random.Range(minCorner.transform.position.z, maxCorner.transform.position.z);
 
         return new Vector3(x, y, z);
     }
@@ -48,8 +48,8 @@ public class RandomSpawningPositionProvider : MonoBehaviour
     {
         Gizmos.color = Color.green;
 
-        Vector3 center = (minCorner + maxCorner) / 2;
-        Vector3 size = maxCorner - minCorner;
+        Vector3 center = (minCorner.transform.position + maxCorner.transform.position) / 2;
+        Vector3 size = maxCorner.transform.position - minCorner.transform.position;
 
         Gizmos.DrawWireCube(center, size);
     }

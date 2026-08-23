@@ -17,4 +17,7 @@ public static class GameplayEventBus
 
     public static event Action OnLawnMoverStoppedMoving;
     public static void RaiseLawnMoverStoppedMoving() { OnLawnMoverStoppedMoving?.Invoke(); }
+
+    public static event Action OnUFODisappeared;
+    public static void RaiseUFODisappeared() {  OnUFODisappeared?.Invoke();}
 }

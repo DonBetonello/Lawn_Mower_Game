@@ -11,4 +11,7 @@ public enum StatType
     FlowerMultiplier,
     FlowerMultiplierLenght,
     FlowerMultiplierRespawnTime,
+    UFOSize,
+    UFOGoldenMultiplier,
+    UFORespawnTime,
 }

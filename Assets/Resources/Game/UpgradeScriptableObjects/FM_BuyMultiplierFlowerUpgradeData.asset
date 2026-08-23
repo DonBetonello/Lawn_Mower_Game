@@ -25,4 +25,4 @@ MonoBehaviour:
   CostMultiplier: 0
   Description: Buy a pick-up flower that will increase your money gain
   requiredUpgrades:
-  - {fileID: 11400000, guid: 7f9a8deb1c499ac45b46b32a3b796968, type: 2}
+  - {fileID: 11400000, guid: 47bb2f3438f081249816727b9ec128a0, type: 2}

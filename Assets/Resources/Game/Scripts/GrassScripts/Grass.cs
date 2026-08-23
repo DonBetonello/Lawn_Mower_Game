@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Grass : MonoBehaviour
@@ -5,10 +6,11 @@ public class Grass : MonoBehaviour
     [SerializeField] private GrassData grassData;
    
     private GrassRuntimeData runtimeData;
-    public GrassRuntimeData GetRuntimeData() { return runtimeData; }
-
+    public GrassRuntimeData RuntimeData => runtimeData;
     private Stat statManager;
 
+    [SerializeField]private float regrowTime;
+    public float RegrowTime  => regrowTime;
 
     private int GridX;
     private int GridZ;
@@ -18,7 +20,6 @@ public class Grass : MonoBehaviour
         GridX = x;
         GridZ = z;
     }
-
     private void Awake()
     {
         runtimeData = new GrassRuntimeData(grassData);
@@ -26,7 +27,7 @@ public class Grass : MonoBehaviour
     public void Init(Stat stat)
     {     
         statManager = stat;
-      
+        regrowTime = statManager.GetStat(StatType.GrassGrowthSpeed);
     }
 
     private void OnEnable()
@@ -43,6 +44,19 @@ public class Grass : MonoBehaviour
             return;
 
         runtimeData.Upgrade(upgradeData.statType, statManager.GetStat(upgradeData.statType));
+        regrowTime = statManager.GetStat(StatType.GrassGrowthSpeed);
     }
-   
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("UFO"))
+        {
+            runtimeData.manageBeingGolden(true);
+            StartCoroutine(TurnGrassBackToNormal());
+        }
+    }
+    private IEnumerator TurnGrassBackToNormal()
+    {
+        yield return new WaitForSeconds(5);
+        runtimeData.manageBeingGolden(false);
+    }
 }

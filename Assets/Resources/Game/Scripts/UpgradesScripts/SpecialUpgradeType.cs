@@ -3,9 +3,9 @@ using UnityEngine;
 public enum SpecialUpgradeType
 {
     None,
-    DroneBuying,
-    FlowerBuying,
-    GoldenZoneBuying,
+    Drone,
+    Flower,
+    UFO,
     LawnIncrease1,
     LawnIncrease2,
     LawnIncrease3,

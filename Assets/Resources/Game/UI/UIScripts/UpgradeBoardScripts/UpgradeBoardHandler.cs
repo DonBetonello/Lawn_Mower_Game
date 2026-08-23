@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class UpgradeBoardHandler : MonoBehaviour
 {
-    [SerializeField] private GameObject UpgradeBoard;
+    [SerializeField] private GameObject upgradeBoard;
 
     [SerializeField] private GameObject joyStick;
 
@@ -18,8 +18,8 @@ public class UpgradeBoardHandler : MonoBehaviour
         isUpgradeBoardActive = isActive;
         joyStick.SetActive(!isActive);
         if (isActive)
-         UIEventBus.RaiseUpgradeBoardOpened(UpgradeBoard);  
+         UIEventBus.RaiseUpgradeBoardOpened(upgradeBoard);  
         else
-         UIEventBus.RaiseUpgradeBoardClosed(UpgradeBoard); 
+         UIEventBus.RaiseUpgradeBoardClosed(upgradeBoard); 
     }
 }

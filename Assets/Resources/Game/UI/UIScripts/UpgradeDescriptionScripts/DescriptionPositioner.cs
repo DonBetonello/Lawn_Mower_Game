@@ -2,74 +2,98 @@ using UnityEngine;
 
 public class DescriptionPositioner : MonoBehaviour
 {
-   
     [SerializeField] private RectTransform description;
     [SerializeField] private RectTransform canvas;
 
     [SerializeField] private Vector2 offset = new Vector2(10f, 10f);
 
+    private Vector3[] targetCorners = new Vector3[4];
+    private Vector3[] descriptionCorners = new Vector3[4];
+
     public void Show(RectTransform target)
     {
-       
-        description.localScale = new Vector2(1,1);
+        description.localScale = Vector3.one;
 
         Canvas.ForceUpdateCanvases();
 
-        Vector3[] targetCorners = new Vector3[4];
         target.GetWorldCorners(targetCorners);
 
-        Vector3[] descriptionCorners = new Vector3[4];
-
         // Right
-        Vector3 rightPos = targetCorners[2] + new Vector3(offset.x, 0);
-        if (TryPosition(rightPos, descriptionCorners))
+        Vector2 rightPosition = WorldToCanvasPosition(targetCorners[2]);
+        rightPosition.x += offset.x;
+
+        if (TryPosition(rightPosition))
             return;
 
         // Left
-        Vector3 leftPos = targetCorners[0] - new Vector3(offset.x, 0);
-        if (TryPosition(leftPos, descriptionCorners))
+        Vector2 leftPosition = WorldToCanvasPosition(targetCorners[0]);
+        leftPosition.x -= offset.x;
+
+        if (TryPosition(leftPosition))
             return;
 
         // Top
-        Vector3 topPos = targetCorners[1] + new Vector3(0, offset.y);
-        if (TryPosition(topPos, descriptionCorners))
+        Vector2 topPosition = WorldToCanvasPosition(targetCorners[1]);
+        topPosition.y += offset.y;
+
+        if (TryPosition(topPosition))
             return;
 
         // Bottom
-        Vector3 bottomPos = targetCorners[0] - new Vector3(0, offset.y);
-        if (TryPosition(bottomPos, descriptionCorners))
+        Vector2 bottomPosition = WorldToCanvasPosition(targetCorners[0]);
+        bottomPosition.y -= offset.y;
+
+        if (TryPosition(bottomPosition))
             return;
 
-        // fallback 
+        // Fallback
         description.position = target.position;
     }
 
-    private bool TryPosition(Vector3 worldPos, Vector3[] tooltipCorners)
+    private Vector2 WorldToCanvasPosition(Vector3 worldPosition)
     {
-        description.position = worldPos;
+        Vector2 screenPosition = RectTransformUtility.WorldToScreenPoint(
+            null,
+            worldPosition
+        );
+
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            canvas,
+            screenPosition,
+            null,
+            out Vector2 canvasPosition
+        );
+
+        return canvasPosition;
+    }
+
+    private bool TryPosition(Vector2 canvasPosition)
+    {
+        description.anchoredPosition = canvasPosition;
+
         Canvas.ForceUpdateCanvases();
 
-        description.GetWorldCorners(tooltipCorners);
+        description.GetWorldCorners(descriptionCorners);
 
-        if (IsInsideScreen(tooltipCorners))
-            return true;
-
-        return false;
+        return IsInsideScreen(descriptionCorners);
     }
 
     private bool IsInsideScreen(Vector3[] corners)
     {
-        float width = Screen.width;
-        float height = Screen.height;
-
-        foreach (var corner in corners)
+        foreach (Vector3 corner in corners)
         {
-            if (corner.x < 0 || corner.x > width ||
-                corner.y < 0 || corner.y > height)
+            Vector2 screenPoint = RectTransformUtility.WorldToScreenPoint(
+                null,
+                corner
+            );
+
+            if (screenPoint.x < 0 || screenPoint.x > Screen.width ||
+                screenPoint.y < 0 || screenPoint.y > Screen.height)
+            {
                 return false;
+            }
         }
 
         return true;
     }
-
 }

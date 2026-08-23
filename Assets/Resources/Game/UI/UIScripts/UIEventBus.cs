@@ -47,4 +47,10 @@ public class UIEventBus : MonoBehaviour
         OnUpgradeUnlocked?.Invoke();
     }
 
+    public static event Action OnPageChanged;
+    public static void RaisePageChanged()
+    {
+        OnPageChanged?.Invoke();
+    }
+
 }

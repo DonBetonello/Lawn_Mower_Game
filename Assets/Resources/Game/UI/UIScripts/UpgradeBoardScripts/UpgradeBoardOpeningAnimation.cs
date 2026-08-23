@@ -3,10 +3,7 @@ using DG.Tweening;
 
 
 public class UpgradeBoardOpeningAnimation : MonoBehaviour
-{
-
-    // [SerializeField] private Button openingButton;
-   
+{  
     private void Awake()
     {
         

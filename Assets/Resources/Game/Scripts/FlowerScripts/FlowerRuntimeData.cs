@@ -24,15 +24,14 @@ public class FlowerRuntimeData : IUpgradable
         {
             case StatType.FlowerMultiplier:
                 multiplier = newValue;
-                 
                 break;
+
             case StatType.FlowerMultiplierRespawnTime:
                 multiplierFlowerRespawnTime = newValue;
-               
                 break;
+
             case StatType.FlowerMultiplierLenght:
                 multiplierLenght = newValue;
-               
                 break;
 
         }

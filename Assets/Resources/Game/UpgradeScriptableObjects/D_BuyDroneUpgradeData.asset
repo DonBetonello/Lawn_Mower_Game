@@ -25,4 +25,4 @@ MonoBehaviour:
   CostMultiplier: 5
   Description: Buy a drone that will fly and cut grass for you
   requiredUpgrades:
-  - {fileID: 11400000, guid: 7f9a8deb1c499ac45b46b32a3b796968, type: 2}
+  - {fileID: 11400000, guid: f097e83cd34f6914aa9f7a77686d5150, type: 2}

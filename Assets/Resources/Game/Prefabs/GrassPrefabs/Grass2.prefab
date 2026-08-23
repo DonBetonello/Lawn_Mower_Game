@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2373321404373491580}
   - component: {fileID: 5992094861177676068}
   - component: {fileID: 6125656397238860267}
+  - component: {fileID: 654270436194960766}
   - component: {fileID: 6993330203299968732}
   m_Layer: 0
   m_Name: Grass2
@@ -77,6 +78,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Grass
   grassData: {fileID: 11400000, guid: 46fcaf00fd6a0e647919c0f681f870dd, type: 2}
+  regrowTime: 0
+--- !u!114 &654270436194960766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2989351074280316147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e0dd9b6173f07b4084a88706a3995e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GrassTurningGoldenAnimation
+  goldenGrassMaterial: {fileID: 2100000, guid: 3fa2259dad557844380519eff9835d7c, type: 2}
+  grassTurningBackTime: 7
 --- !u!65 &6993330203299968732
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -161,6 +177,10 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: cd46c66e9d0f858439105cfd8299571e, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: cd46c66e9d0f858439105cfd8299571e, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cd46c66e9d0f858439105cfd8299571e, type: 3}
       propertyPath: m_Name

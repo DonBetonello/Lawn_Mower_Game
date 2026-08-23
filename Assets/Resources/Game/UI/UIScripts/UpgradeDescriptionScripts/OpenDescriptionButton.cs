@@ -21,11 +21,20 @@ public class OpenDescriptionButton : MonoBehaviour
     {
         UpgradesEventBus.OnUpgradeProcessed += OnUnlocked;
         UpgradesEventBus.OnMaxLelevUpgradePurchased += OnMaxUpgradeReached;
+        UIEventBus.OnUpgradeDescriptionClosed += ChangeDescriptionStateOpen;
+        UIEventBus.OnPageChanged += DisplayButtonOnPageChanged;
     }
     private void OnDisable()
     {
         UpgradesEventBus.OnUpgradeProcessed -= OnUnlocked;
         UpgradesEventBus.OnMaxLelevUpgradePurchased -= OnMaxUpgradeReached;
+        UIEventBus.OnUpgradeDescriptionClosed += ChangeDescriptionStateOpen;
+
+    }
+
+    private void ChangeDescriptionStateOpen(GameObject description)
+    {
+        DescriptionState.isOpen = false;
     }
 
     private void OnUnlocked(UpgradeData data)
@@ -39,6 +48,12 @@ public class OpenDescriptionButton : MonoBehaviour
         }
     }
 
+    private void DisplayButtonOnPageChanged()
+    {
+        OnUnlocked(this.upgradeData);
+    }
+
+
     public void OnClick()
     {
         var  myRect =  GetComponent<RectTransform>();
@@ -49,7 +64,7 @@ public class OpenDescriptionButton : MonoBehaviour
             if (DescriptionState.isOpen)
             {
                 UIEventBus.RaiseUpgradeDescriptionClosed(DescriptionState.currentTooltip);
-                DescriptionState.isOpen = false;
+              
             }
             else
             {

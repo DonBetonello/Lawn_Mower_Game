@@ -21,7 +21,7 @@ public class FlowerSpawn : MonoBehaviour
         var respawnTime = statsManager.GetStat(StatType.FlowerMultiplierRespawnTime);
         StopCoroutine(SpawnLoop(respawnTime));
         spawnFactory.Create(
-            SpecialUpgradeType.FlowerBuying,
+            SpecialUpgradeType.Flower,
             statsManager       
         );
     }

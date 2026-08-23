@@ -5,32 +5,27 @@ using System;
 
 public class UpgradeDescriptionHandler : MonoBehaviour
 {
-    [SerializeField] private GameObject UpgradeDescriptionObject;
-    private TextMeshProUGUI UpgradeName;
-    private TextMeshProUGUI UpgradeValueChange;
-    private TextMeshProUGUI UpgradeLevel;
-    private TextMeshProUGUI UpgradePrice;
-
-    private TextMeshProUGUI UpgradeDescription;
+    [SerializeField] private TextMeshProUGUI UpgradeName;
+    [SerializeField] private TextMeshProUGUI UpgradeValueChange;
+    [SerializeField] private TextMeshProUGUI UpgradeLevel;
+    [SerializeField] private TextMeshProUGUI UpgradePrice;
+    [SerializeField] private TextMeshProUGUI UpgradeDescription;
 
     private Upgrades upgrades;
 
-    private Stat statsManager;
+
 
     [SerializeField] Button BuyUpgradeButton;
     [SerializeField] TextMeshProUGUI BuyUpgradeButtonText;
 
     [SerializeField] BuyUpgradeButton buyUpgradeButtonScript;
 
+
+    [SerializeField] private Stat statsManager;
+
     private void Awake()
     {
         upgrades = FindFirstObjectByType<Upgrades>();
-        
-        UpgradeDescription = UpgradeDescriptionObject.transform.Find("Description").GetComponent<TextMeshProUGUI>();
-        UpgradeName = UpgradeDescriptionObject.transform.Find("Name").GetComponent<TextMeshProUGUI>();
-        UpgradeValueChange = UpgradeDescriptionObject.transform.Find("ValueChange").GetComponent<TextMeshProUGUI>();
-        UpgradeLevel = UpgradeDescriptionObject.transform.Find("Level").GetComponent<TextMeshProUGUI>();
-        UpgradePrice = UpgradeDescriptionObject.transform.Find("Price").GetComponent<TextMeshProUGUI>();
     }
 
     private void OnEnable()
@@ -59,15 +54,16 @@ public class UpgradeDescriptionHandler : MonoBehaviour
         if (upgradeRuntimeData != null)
         {
 
-            float currentValue = upgradeRuntimeData.CurrentValue;
-            float futureValue = upgradeRuntimeData.getNextUpgradeValue();
+            float currentValue = Mathf.Round(statsManager.GetStat(upgradeRuntimeData.StatType) * 10) * 0.1f;
+            float futureValue = Mathf.Round(upgradeRuntimeData.getNextUpgradeValue(statsManager) * 10) * 0.1f;
 
-            
+
 
 
             UpgradeDescription.text = upgradeRuntimeData.Description;
             UpgradeName.text = upgradeRuntimeData.UpgradeName;
-            UpgradeValueChange.text = currentValue.ToString() + upgradeRuntimeData.ValueMeasurment + " → " + futureValue.ToString() + upgradeRuntimeData.ValueMeasurment;
+            if (upgradeRuntimeData.StatType != StatType.None) { UpgradeValueChange.text = currentValue.ToString() + upgradeRuntimeData.ValueMeasurment + " → " + futureValue.ToString() + upgradeRuntimeData.ValueMeasurment; }
+            else { UpgradeValueChange.text = ""; }
             UpgradeLevel.text = "Lvl: " + upgradeRuntimeData.CurrentLevel.ToString();
             UpgradePrice.text = Mathf.Round(upgradeRuntimeData.CurrentCost).ToString();
         }
@@ -76,11 +72,14 @@ public class UpgradeDescriptionHandler : MonoBehaviour
     }
     private void OnMaxUpgradeReached(UpgradeRuntimeData upgradeRuntimeData)
     {
-
-        float currentValue = upgradeRuntimeData.CurrentValue;
+       
+        float currentValue = Mathf.Round(statsManager.GetStat(upgradeRuntimeData.StatType) * 10) * 0.1f;
         UpgradeDescription.text = upgradeRuntimeData.Description;
         UpgradeName.text = upgradeRuntimeData.UpgradeName;
-        UpgradeValueChange.text = currentValue.ToString() + upgradeRuntimeData.ValueMeasurment;
+
+        if (upgradeRuntimeData.StatType != StatType.None) { UpgradeValueChange.text = currentValue.ToString() + upgradeRuntimeData.ValueMeasurment; }
+        else { UpgradeValueChange.text = ""; }
+       
         UpgradeLevel.text = "Lvl: " + upgradeRuntimeData.CurrentLevel.ToString();
         UpgradePrice.text = "";
 

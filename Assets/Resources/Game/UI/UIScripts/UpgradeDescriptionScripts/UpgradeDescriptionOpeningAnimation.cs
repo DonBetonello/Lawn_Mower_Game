@@ -10,6 +10,7 @@ public class UpgradeDescriptionOpeningAnimation : MonoBehaviour
     {
         UIEventBus.OnUpgradeDescriptionOpened += PlayOpeningAnimation;
         UIEventBus.OnUpgradeDescriptionClosed += PlayClosingAnimation;
+        
     }
     private void OnDisable()
     {

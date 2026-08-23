@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[System.Serializable]
+
 public class UpgradeRuntimeData
 {
     public UpgradeData Config;
@@ -39,19 +39,20 @@ public class UpgradeRuntimeData
         return Config.MaxLevel <= CurrentLevel ;
     }
 
-    public float getNextUpgradeValue()
+    public float getNextUpgradeValue(Stat statManager)
     {
-        float nextUpgradeValue = CurrentValue + Config.IncreaseAmount;
+        float nextUpgradeValue = statManager.GetStat(StatType) + Config.IncreaseAmount;
         return nextUpgradeValue;
     }
  
-    public void Upgrade()
+    public void Upgrade(Stat statManager)
     {
         
         if (!CanUpgrade()) { return; }
           
         IsUnlocked = true;
         CurrentLevel++;
+        CurrentValue = statManager.GetStat(StatType);
         CurrentValue += Config.IncreaseAmount;
         CurrentCost *= Config.CostMultiplier;
         if (isMaxLevelReached()) { UpgradesEventBus.RaiseMaxLevelUpgradePurchased(Config); }

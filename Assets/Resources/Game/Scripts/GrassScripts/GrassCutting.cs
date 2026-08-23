@@ -52,7 +52,7 @@ public class GrassCuttingHandler : MonoBehaviour
     {
         if (Physics.CheckSphere(new Vector3(grass.transform.position.x, grass.transform.position.y + 2, grass.transform.position.z), 0.5f, blockingLayers)) { return false; } 
 
-        return GrassRegrowTimer >= grass.GetRuntimeData().CurrentRegrowTime;
+        return GrassRegrowTimer >= grass.RegrowTime;
     }
     public void ForceRegrow()
     {

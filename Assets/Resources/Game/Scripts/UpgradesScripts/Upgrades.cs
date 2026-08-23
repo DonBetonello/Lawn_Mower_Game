@@ -12,26 +12,18 @@ public class Upgrades : MonoBehaviour
 
 
     [Header("References")]
-   [SerializeField]private MoneyHandler moneyHandler;
-
-    [SerializeField]private Stat statManager;
-    [SerializeField]private SpawnFactory spawnFactory;
-   
-
+    [SerializeField] private MoneyHandler moneyHandler;
+    [SerializeField] private Stat statManager;
+    [SerializeField] private SpawnFactory spawnFactory;
     [SerializeField] private UpgradeUnlock upgradeUnlockHandler;
 
     private void Start()
     {
-     //   spawningPositionProvider = FindFirstObjectByType<RandomSpawningPositionProvider>();
-    //    moneyHandler = FindFirstObjectByType<MoneyHandler>();
-     //   statManager = FindAnyObjectByType<Stat>();
-     //   spawnFactory = FindAnyObjectByType<SpawnFactory>();
         foreach (var upgrade in upgrades)
         {
             runtimeData[upgrade] = new UpgradeRuntimeData(upgrade);
-            statManager.AddStat(upgrade.statType, upgrade.StartValue); 
+            statManager.AddStat(upgrade.statType, upgrade.StartValue);
         }
-      
     }
     public UpgradeRuntimeData GetRuntimeData(UpgradeData upgrade)
     {
@@ -55,14 +47,12 @@ public class Upgrades : MonoBehaviour
         {
             return;
         }
-        
+
         moneyHandler.RemoveMoney(runtimeData[upgrade].CurrentCost);
         upgradeUnlockHandler.Unlock(upgrade);
-        runtimeData[upgrade].Upgrade();
+        runtimeData[upgrade].Upgrade(statManager);
         statManager.AddStat(upgrade.statType, runtimeData[upgrade].CurrentValue);
-      //  if (upgrade.specialUpgradeType != SpecialUpgradeType.None) { spawnFactory.Create(upgrade.specialUpgradeType, statManager, spawningPositionProvider.GetRandomPosition()); }
-        if(upgrade.specialUpgradeType != SpecialUpgradeType.None) { UpgradesEventBus.RaiseSpecialUpgradePurchased(upgrade); }
+        if (upgrade.specialUpgradeType != SpecialUpgradeType.None) { UpgradesEventBus.RaiseSpecialUpgradePurchased(upgrade); }
         UpgradesEventBus.RaiseUpgradeProcessed(upgrade);
     }
-
 }

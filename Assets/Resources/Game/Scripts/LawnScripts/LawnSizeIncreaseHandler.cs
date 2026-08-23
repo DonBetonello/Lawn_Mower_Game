@@ -10,6 +10,7 @@ public class LawnSizeIncreaseHandler : MonoBehaviour
     [SerializeField] private GameObject LawnMoverObject;
     [SerializeField] private Canvas canvas;
     private Drone Drone;
+    private Flower Flower;
 
 
     [Header("Other references")]
@@ -139,7 +140,11 @@ public class LawnSizeIncreaseHandler : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         Drone = FindFirstObjectByType<Drone>(FindObjectsInactive.Include);
-        if (Drone != null) { Drone.gameObject.SetActive(!isActive); }  
+        if (Drone != null) { Drone.gameObject.SetActive(!isActive); }
+
+        Flower = FindFirstObjectByType<Flower>(FindObjectsInactive.Include);
+        if (Flower != null) { Flower.gameObject.SetActive(!isActive); }
+
         LawnMoverObject.SetActive(!isActive);
         
 

@@ -8,10 +8,10 @@ public class Drone : MonoBehaviour, ISpawnable
 
     private Stat statManager;
 
-    private GameObject drone;
+     
     public void Initialize(Stat stats) {
         this.statManager = stats;
-        drone = this.gameObject;
+        
         droneRuntimeData = new DroneRuntimeData(droneData);
         droneRuntimeData.SetCurrentMovingSpeed(stats.GetStat(StatType.DroneSpeed));
         droneRuntimeData.SetCurrentSize(stats.GetStat(StatType.DroneSize));
@@ -28,7 +28,7 @@ public class Drone : MonoBehaviour, ISpawnable
 
     private void UpgradeDrone(UpgradeData upgradeData)
     {
-        droneRuntimeData.GetDrone(drone);
+        droneRuntimeData.GetDrone(this.gameObject);
         droneRuntimeData.Upgrade(upgradeData.statType, statManager.GetStat(upgradeData.statType));
     }
 }

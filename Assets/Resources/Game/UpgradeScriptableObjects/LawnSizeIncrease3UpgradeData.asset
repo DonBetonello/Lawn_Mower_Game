@@ -18,7 +18,7 @@ MonoBehaviour:
   Name: Bigger Lawn
   IncreaseAmount: 1
   ValueMeasurment: 
-  StartValue: 2
+  StartValue: 0
   StartLevel: 0
   MaxLevel: 1
   StartCost: 10000
