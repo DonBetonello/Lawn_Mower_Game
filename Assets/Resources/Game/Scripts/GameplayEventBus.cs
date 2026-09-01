@@ -20,4 +20,18 @@ public static class GameplayEventBus
 
     public static event Action OnUFODisappeared;
     public static void RaiseUFODisappeared() {  OnUFODisappeared?.Invoke();}
+
+    public static event Action OnScreenTouched;
+    public static void RaiseScreenTouched() { OnScreenTouched?.Invoke(); }
+
+    public static event Action OnLawnIncreaseCutsceneStarted;
+    public static void RaiseLawnIncreaseCutsceneStarted()
+    {
+        OnLawnIncreaseCutsceneStarted?.Invoke();
+    }
+    public static event Action OnLawnIncreaseCutsceneEnded;
+    public static void RaiseLawnIncreaseCutsceneEnded()
+    {
+        OnLawnIncreaseCutsceneEnded?.Invoke();
+    }
 }

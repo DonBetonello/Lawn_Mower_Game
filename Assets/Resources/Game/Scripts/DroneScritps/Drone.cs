@@ -31,4 +31,6 @@ public class Drone : MonoBehaviour, ISpawnable
         droneRuntimeData.GetDrone(this.gameObject);
         droneRuntimeData.Upgrade(upgradeData.statType, statManager.GetStat(upgradeData.statType));
     }
+
+
 }

@@ -7,10 +7,7 @@ public class LawnSizeIncreaseHandler : MonoBehaviour
 {
 
     [Header("Disable objects references")]
-    [SerializeField] private GameObject LawnMoverObject;
     [SerializeField] private Canvas canvas;
-    private Drone Drone;
-    private Flower Flower;
 
 
     [Header("Other references")]
@@ -64,9 +61,10 @@ public class LawnSizeIncreaseHandler : MonoBehaviour
     }
     public IEnumerator RegenerateLawn()
     {
-        loadingScreen.EnableLoadingScreen();
 
-        yield return StartCoroutine(ManageObjectsActive(true));
+        GameplayEventBus.RaiseLawnIncreaseCutsceneStarted();
+
+        loadingScreen.EnableLoadingScreen();
 
 
         var previousGrassList = lawnCreator.GetGrassList();
@@ -130,25 +128,10 @@ public class LawnSizeIncreaseHandler : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
-
-        yield return StartCoroutine(ManageObjectsActive(false));
         canvas.gameObject.SetActive(true);
-    }
 
-    private IEnumerator ManageObjectsActive(bool isActive)
-    {
-        yield return new WaitForEndOfFrame();
+        GameplayEventBus.RaiseLawnIncreaseCutsceneEnded();
 
-        Drone = FindFirstObjectByType<Drone>(FindObjectsInactive.Include);
-        if (Drone != null) { Drone.gameObject.SetActive(!isActive); }
-
-        Flower = FindFirstObjectByType<Flower>(FindObjectsInactive.Include);
-        if (Flower != null) { Flower.gameObject.SetActive(!isActive); }
-
-        LawnMoverObject.SetActive(!isActive);
-        
-
-        yield return null;
     }
 
     private void DisablePreviousGrass(List<Grass> list)

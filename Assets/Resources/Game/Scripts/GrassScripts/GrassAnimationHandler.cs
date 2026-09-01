@@ -16,7 +16,7 @@ public class GrassAnimationHandler : MonoBehaviour
 
         particlePool = FindFirstObjectByType<GrassParticlesObjectPool>();
 
-        DOTween.SetTweensCapacity(1250, 500);
+        DOTween.SetTweensCapacity(3125, 1250);
     }
 
     private void OnEnable()
@@ -37,10 +37,7 @@ public class GrassAnimationHandler : MonoBehaviour
 
     private void RandomizeGrassRotationAtEnable()
     {
-        transform.DORotate(
-            new Vector3(0, Random.Range(0, 360), 0),
-            0
-        );
+        transform.Rotate(new Vector3(0, Random.Range(0, 360), 0));
     }
 
 

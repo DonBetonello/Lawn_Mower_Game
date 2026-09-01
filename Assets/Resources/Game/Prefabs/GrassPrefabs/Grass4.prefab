@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -7743827085468145485}
   - component: {fileID: -8189977157861010804}
   - component: {fileID: -6189023203198053746}
+  - component: {fileID: 7121238885476117172}
   - component: {fileID: 2588473793277111065}
   m_Layer: 0
   m_Name: Grass4
@@ -78,7 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Grass
   grassData: {fileID: 11400000, guid: 46fcaf00fd6a0e647919c0f681f870dd, type: 2}
-  regrowTime: 0
+  grassTurningGoldenAnimation: {fileID: -6189023203198053746}
 --- !u!114 &-6189023203198053746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,6 +94,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GrassTurningGoldenAnimation
   goldenGrassMaterial: {fileID: 2100000, guid: 3fa2259dad557844380519eff9835d7c, type: 2}
   grassTurningBackTime: 7
+--- !u!114 &7121238885476117172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6692985901199495543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a80fdb17130adbe4d96ce19864a4e811, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GoldenGrassSpawnCoin
 --- !u!65 &2588473793277111065
 BoxCollider:
   m_ObjectHideFlags: 0

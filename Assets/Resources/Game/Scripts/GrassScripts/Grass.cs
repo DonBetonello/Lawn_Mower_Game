@@ -3,17 +3,22 @@ using UnityEngine;
 
 public class Grass : MonoBehaviour
 {
+
+
     [SerializeField] private GrassData grassData;
    
     private GrassRuntimeData runtimeData;
     public GrassRuntimeData RuntimeData => runtimeData;
     private Stat statManager;
 
-    [SerializeField]private float regrowTime;
+    private float regrowTime;
     public float RegrowTime  => regrowTime;
 
     private int GridX;
     private int GridZ;
+
+    [SerializeField] private GrassTurningGoldenAnimation grassTurningGoldenAnimation;
+
 
     public void SetGridPosition(int x, int z)
     {
@@ -50,13 +55,24 @@ public class Grass : MonoBehaviour
     {
         if(other.CompareTag("UFO"))
         {
-            runtimeData.manageBeingGolden(true);
+            ManageGrassGolden(true);
             StartCoroutine(TurnGrassBackToNormal());
         }
     }
     private IEnumerator TurnGrassBackToNormal()
     {
-        yield return new WaitForSeconds(5);
-        runtimeData.manageBeingGolden(false);
+        yield return new WaitForSeconds(7);
+        ManageGrassGolden(false);
+    }
+
+    public bool IsGrassGolden()
+    {
+        return runtimeData.IsGolden;
+    }
+    public void ManageGrassGolden(bool IsGolden)
+    {
+        runtimeData.manageBeingGolden(IsGolden);
+
+        if(!IsGolden) { grassTurningGoldenAnimation.ForceBecomeNormal(); }
     }
 }

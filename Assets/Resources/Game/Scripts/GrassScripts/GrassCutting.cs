@@ -8,6 +8,8 @@ public class GrassCuttingHandler : MonoBehaviour
     [Tooltip("Add any layer thet should PREVENT grass from growing if placed above")]
     [SerializeField] private LayerMask blockingLayers;
     [SerializeField]private Grass grass;
+
+
     private bool isCut = false;
 
 
@@ -25,23 +27,21 @@ public class GrassCuttingHandler : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        if(collision.gameObject.transform.CompareTag("LawnMover") || collision.gameObject.transform.CompareTag("Drone")) { CutGrass(); }
-        
+        if(collision.gameObject.transform.CompareTag("LawnMover") || collision.gameObject.transform.CompareTag("Drone")) { CutGrass(); }     
     }
-
-  
 
     public void CutGrass()
     {
-
         isCut = true;
         GrassRegrowTimer = 0;
-
+  
         GameplayEventBus.RaiseGrassCut(grass);
     }
 
     public void RegrowGrass()
     {
+        grass.ManageGrassGolden(false);
+     
         isCut = false;
         GrassRegrowTimer = 0;
 

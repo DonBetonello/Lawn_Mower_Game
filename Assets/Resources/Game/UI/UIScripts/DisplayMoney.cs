@@ -5,15 +5,17 @@ using UnityEngine;
 
 public class DisplayMoney : MonoBehaviour
 {
-   private MoneyHandler m_MoneyHandler;
+   [SerializeField]private MoneyHandler m_MoneyHandler;
     [SerializeField] private TextMeshProUGUI moneyText; 
-    private void Awake()
-    {
-        m_MoneyHandler = FindFirstObjectByType<MoneyHandler>();        
-    }
+   
     private void Update()
     {
-        moneyText.text = Mathf.Round(m_MoneyHandler.GetMoney).ToString();
+
+        float money = m_MoneyHandler.GetMoney;
+
+        moneyText.text = money >= 1000
+            ? $"{money / 1000f:0.#}k"
+            : money.ToString();
     }
 
 }

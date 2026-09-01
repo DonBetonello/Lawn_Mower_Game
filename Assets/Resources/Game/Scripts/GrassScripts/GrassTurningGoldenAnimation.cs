@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class GrassTurningGoldenAnimation : MonoBehaviour
 {
-    private Material startGrassMaterial;
-    [SerializeField] private Material goldenGrassMaterial;
 
+   private Material startGrassMaterial;
+    [SerializeField] private Material goldenGrassMaterial;
     private Renderer grassRenderer;
 
  
@@ -22,7 +22,7 @@ public class GrassTurningGoldenAnimation : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("UFO"))
+        if (other.CompareTag("UFO"))
         {
             BecomeGolden();
         }
@@ -42,6 +42,12 @@ public class GrassTurningGoldenAnimation : MonoBehaviour
         grassRenderer.sharedMaterial = startGrassMaterial;
         normalCoroutine = null;
     }
+    public void ForceBecomeNormal()
+    {
+        if (normalCoroutine != null) { StopCoroutine(normalCoroutine); }
 
+        grassRenderer.sharedMaterial = startGrassMaterial;
+    
+    }
 
 }

@@ -27,6 +27,7 @@ public class UpgradeBoardOpeningAnimation : MonoBehaviour
         DOTween.Sequence()   
          .AppendCallback(() => canvasGroup.interactable = false) // Disable interaction with the canvas group for the animation duration to prevent animation glitches
          .AppendCallback(() => upgradeBoard.SetActive(true))
+         .JoinCallback(() => upgradeBoard.transform.localScale = Vector3.zero)
          .Append(upgradeBoardRectTransform.DOScale(Vector3.one, 0.2f).SetEase(Ease.OutBack))
          .AppendCallback(() => upgradeBoardRectTransform.localScale = Vector3.one)    
          .AppendCallback(() => canvasGroup.interactable = true);

@@ -5,22 +5,22 @@ using System;
 
 public class UpgradeDescriptionHandler : MonoBehaviour
 {
+    private Upgrades upgrades;
+
+    [Header("Upgrade description references")]
     [SerializeField] private TextMeshProUGUI UpgradeName;
     [SerializeField] private TextMeshProUGUI UpgradeValueChange;
     [SerializeField] private TextMeshProUGUI UpgradeLevel;
     [SerializeField] private TextMeshProUGUI UpgradePrice;
     [SerializeField] private TextMeshProUGUI UpgradeDescription;
 
-    private Upgrades upgrades;
-
-
-
+    [Header("Buy button refrences")]
     [SerializeField] Button BuyUpgradeButton;
     [SerializeField] TextMeshProUGUI BuyUpgradeButtonText;
 
     [SerializeField] BuyUpgradeButton buyUpgradeButtonScript;
 
-
+    [Header("Other references")]
     [SerializeField] private Stat statsManager;
 
     private void Awake()
