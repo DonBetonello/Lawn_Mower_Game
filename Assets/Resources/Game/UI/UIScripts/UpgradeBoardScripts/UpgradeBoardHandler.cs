@@ -15,6 +15,7 @@ public class UpgradeBoardHandler : MonoBehaviour
     public void OnUpgradeBoardButtonClicked()
     {
         SetUpgradeBoardActive(!isUpgradeBoardActive);
+        SoundEventBus.RaiseButtonClicked();
     }
 
     private void SetUpgradeBoardActive(bool isActive)

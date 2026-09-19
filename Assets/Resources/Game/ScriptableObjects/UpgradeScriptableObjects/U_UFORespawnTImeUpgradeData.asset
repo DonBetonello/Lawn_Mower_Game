@@ -18,7 +18,7 @@ MonoBehaviour:
   Name: More aliens
   IncreaseAmount: -15
   ValueMeasurment: s
-  StartValue: 5
+  StartValue: 75
   StartLevel: 0
   MaxLevel: 2
   StartCost: 450

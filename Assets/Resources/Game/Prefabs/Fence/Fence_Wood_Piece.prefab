@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 7610776882174911424}
   - component: {fileID: 4896200128784942169}
   - component: {fileID: 8014428072219598234}
-  - component: {fileID: 5770043839012354038}
   - component: {fileID: 844719620946057266}
-  - component: {fileID: 5959622780505453229}
+  - component: {fileID: 5829201325205129488}
   m_Layer: 0
   m_Name: Fence_Wood_Piece
   m_TagString: Fence
@@ -93,27 +92,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4605590278829933190}
   m_Mesh: {fileID: 4300000, guid: 48dcde9a8eb721740b199fc432df8c21, type: 2}
---- !u!65 &5770043839012354038
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4605590278829933190}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.13, y: 0.99999994, z: 2.2}
-  m_Center: {x: 0.061419487, y: -0.31000003, z: -1.1}
 --- !u!54 &844719620946057266
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -141,7 +119,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!65 &5959622780505453229
+--- !u!65 &5829201325205129488
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,4 +139,4 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.122839004, y: 0.99999994, z: 2.2000005}
-  m_Center: {x: 0.061419263, y: -0.31000003, z: -1.1000003}
+  m_Center: {x: 0.061419502, y: -0.31000003, z: -1.1000003}

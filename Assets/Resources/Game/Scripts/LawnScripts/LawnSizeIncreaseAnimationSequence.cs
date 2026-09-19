@@ -5,31 +5,38 @@ using System.Collections.Generic;
 
 public class LawnSizeIncreaseAnimationSequence : MonoBehaviour
 {
-    [SerializeField] private GameObject ground;
-    private Camera mainCamera;
-
-    [SerializeField] private Transform lawnGoToPosition;
-
-    [SerializeField] private Transform lawnTransform;
-
-
+    [SerializeField] private GameObject ScaleParent;
+    [SerializeField] private GameObject lawn;
     private FenceChangeAnimation fenceChangeAnimation;
 
     private void Awake()
     {
-        mainCamera = Camera.main;
+ 
         fenceChangeAnimation = gameObject.GetComponent<FenceChangeAnimation>();
     }
-    public IEnumerator PlaySizeIncreaseAnimation()
+    public IEnumerator PlayLawnSizeIncreaseUpgradeAnimation()
     {
+ 
+        var previousScaleParentScale = ScaleParent.transform.localScale;
+        var newScaleParentScale = new Vector3(
+            previousScaleParentScale.x - 0.1f,
+            previousScaleParentScale.y - 0.1f,
+            previousScaleParentScale.z - 0.1f);
 
-        mainCamera.transform.DOMoveY(mainCamera.transform.position.y + 2.5f, 1f).SetEase(Ease.OutBack);
+        ScaleParent.transform.localScale = newScaleParentScale;
 
-        ground.transform.DOScale(ground.transform.localScale * 1.2f, 0.5f).SetEase(Ease.Linear);
-        yield return new WaitForSeconds(0.5f);
-        lawnTransform.transform.position = new Vector3(lawnGoToPosition.transform.position.x, -5, lawnGoToPosition.transform.position.z);
+
+        var previuosLawnScale = lawn.transform.localScale;
+        var newLawnScale = new Vector3(
+            previuosLawnScale.x - 0.1f,
+            previuosLawnScale.y - 0.1f,
+            previuosLawnScale.z - 0.1f);
+
+        lawn.transform.localScale = newLawnScale;
 
         yield return StartCoroutine(fenceChangeAnimation.PlayFenceChangeAnimation());
     }
+
+    
 
 }

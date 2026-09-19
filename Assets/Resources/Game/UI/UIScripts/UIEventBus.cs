@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class UIEventBus : MonoBehaviour
+public static class UIEventBus
 {
 
 
@@ -52,5 +52,5 @@ public class UIEventBus : MonoBehaviour
     {
         OnPageChanged?.Invoke();
     }
-
+     
 }

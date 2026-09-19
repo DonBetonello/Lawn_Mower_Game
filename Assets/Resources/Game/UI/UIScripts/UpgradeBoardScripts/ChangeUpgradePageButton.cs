@@ -20,6 +20,7 @@ public class ChangePageButton : MonoBehaviour
     public void OnClick(bool nextPage)
     {
         changeUpgradePage.ChangePage(nextPage);
+        SoundEventBus.RaiseButtonClicked();
     }
 
     public void ManageButtonActive()

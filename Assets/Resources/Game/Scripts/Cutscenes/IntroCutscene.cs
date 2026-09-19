@@ -21,7 +21,7 @@ public class IntroCutscene : MonoBehaviour
    [SerializeField] private AttentionConcentrator attentionConcentrator;
 
     private bool lawnCreatingAnimationStarted;
-
+    private bool lawnCreatingAnimationEnded;
 
     private void Start()
     {
@@ -56,6 +56,8 @@ public class IntroCutscene : MonoBehaviour
         UpgradesMenuButton.interactable = false;
 
         attentionConcentrator.returnObjectBack(upgradesMenuButton);
+
+        yield return new WaitForEndOfFrame();
 
         attentionConcentrator.ConcentrateAttention(lawnUpgradeButton);
 
@@ -95,14 +97,39 @@ public class IntroCutscene : MonoBehaviour
         attentionConcentrator.gameObject.SetActive(false);
 
         dialogWidow.gameObject.SetActive(false);
+        UpgradesMenuButton.gameObject.SetActive(false);
 
         UpgradesMenuButton.interactable = true;
+
+         yield return new WaitUntil(() => lawnCreatingAnimationEnded == true);
+
+        dialogWidow.gameObject.SetActive(true);
+
+        yield return StartCoroutine (introDialogSequence.PlayDialogSequnce());
+
+        dialogWidow.gameObject.SetActive(false);
+    
 
         foreach (GameObject obj in ObjectsToEbable)
         {
             obj.SetActive(true);
         }
+        UpgradesMenuButton.gameObject.SetActive(true);
+
+        Destroy(gameObject);
+    }
+    private void LawnCreationEnded()
+    {
+        lawnCreatingAnimationEnded = true;
     }
 
+    private void OnEnable()
+    {
+        GameplayEventBus.OnLawnIncreaseCutsceneEnded += LawnCreationEnded;
+    }
+    private void OnDisable()
+    {
+        GameplayEventBus.OnLawnIncreaseCutsceneEnded -= LawnCreationEnded;
+    }
 
 }

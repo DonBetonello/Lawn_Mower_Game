@@ -13,6 +13,7 @@ public class LawnSizeIncreaseHandler : MonoBehaviour
     [Header("Other references")]
     [SerializeField] private LawnCreator lawnCreator;
     [SerializeField] private LawnSizeIncreaseAnimationSequence lawnSizeIncreaseAnimation;
+    [SerializeField] private ChangeLawnBackground changeLawnBackgroundHandler;
     [SerializeField] private LawnCreatingLoadingScreen loadingScreen;
 
 
@@ -22,7 +23,7 @@ public class LawnSizeIncreaseHandler : MonoBehaviour
 
 
     private int lawnSizeIncreaseCounter;
- 
+    private int backgroundChangeCounter;
 
     private void OnEnable()
     {
@@ -49,14 +50,19 @@ public class LawnSizeIncreaseHandler : MonoBehaviour
                 IncreaseLawnSize();
                 StartCoroutine(RegenerateLawn());
                 break;
+            case SpecialUpgradeType.LawnIncrease4:
+                IncreaseLawnSize();
+                backgroundChangeCounter++;
+                StartCoroutine(RegenerateLawn());
+                break;
         }
     }
 
     private void IncreaseLawnSize()
     {
         lawnSizeIncreaseCounter++;
-        lawnWidth = Mathf.RoundToInt(lawnWidth * 1.21f);
-        lawnHeight = Mathf.RoundToInt(lawnHeight * 1.2f);
+        lawnWidth = Mathf.RoundToInt(lawnWidth * 1.1f);
+        lawnHeight = Mathf.RoundToInt(lawnHeight * 1.1f);
 
     }
     public IEnumerator RegenerateLawn()
@@ -66,6 +72,10 @@ public class LawnSizeIncreaseHandler : MonoBehaviour
 
         loadingScreen.EnableLoadingScreen();
 
+        if (backgroundChangeCounter > 0)
+        {
+            changeLawnBackgroundHandler.ChangeBackground();
+        }
 
         var previousGrassList = lawnCreator.GetGrassList();
 
@@ -97,7 +107,7 @@ public class LawnSizeIncreaseHandler : MonoBehaviour
         if (lawnSizeIncreaseCounter > 0)
         {
             yield return StartCoroutine(
-                lawnSizeIncreaseAnimation.PlaySizeIncreaseAnimation()
+                lawnSizeIncreaseAnimation.PlayLawnSizeIncreaseUpgradeAnimation()
             );
         }
 

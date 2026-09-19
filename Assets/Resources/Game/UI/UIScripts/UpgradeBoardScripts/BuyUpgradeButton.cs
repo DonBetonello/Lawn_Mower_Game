@@ -15,13 +15,14 @@ public class BuyUpgradeButton : MonoBehaviour
         if (upgradeData == null) { Debug.LogError("UpgradeData was not provided"); return; }
         UpgradesEventBus.RaiseUpgradePurchased(upgradeData);
         UIEventBus.RaiseUpgradeDataRefresh(upgradeData);
-    
+        
     }
 
 
     public void OnClick()
     {
         
-        OnUpgradePurchased(upgradeData);    
+        OnUpgradePurchased(upgradeData);
+        SoundEventBus.RaiseButtonClicked();
     }
 }

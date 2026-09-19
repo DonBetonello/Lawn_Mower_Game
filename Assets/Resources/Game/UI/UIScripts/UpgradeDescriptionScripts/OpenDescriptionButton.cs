@@ -70,7 +70,7 @@ public class OpenDescriptionButton : MonoBehaviour
             {
                 Open();
             }
-
+            SoundEventBus.RaiseButtonClicked();
             return;
         }
 
@@ -80,6 +80,7 @@ public class OpenDescriptionButton : MonoBehaviour
         }
 
         Open();
+        SoundEventBus.RaiseButtonClicked();
     }
 
     private void Open()

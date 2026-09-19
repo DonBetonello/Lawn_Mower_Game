@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 855290295200434980}
-  - component: {fileID: 8761812141431763240}
-  - component: {fileID: 5448583054419735463}
   - component: {fileID: 5550821318966502242}
   - component: {fileID: 8903763162810093074}
+  - component: {fileID: 8761812141431763240}
+  - component: {fileID: 5448583054419735463}
   - component: {fileID: 315151436508576425}
   m_Layer: 7
   m_Name: Drone
@@ -38,32 +38,6 @@ Transform:
   - {fileID: 5363741693350664534}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8761812141431763240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4090960087713954449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7705150f5fbe4b24eaa921b64dc0b116, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Drone
-  droneData: {fileID: 11400000, guid: cec845e55ff1c474fa02adf7df169f56, type: 2}
---- !u!114 &5448583054419735463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4090960087713954449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 322779d807d3ef046a4ea354eed6efc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DroneMovingComponent
-  rigidBody: {fileID: 5550821318966502242}
 --- !u!54 &5550821318966502242
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -112,6 +86,32 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6917114, y: 0.18990374, z: 0.6967926}
   m_Center: {x: -0.0018615723, y: 0.03226161, z: -0.0064020157}
+--- !u!114 &8761812141431763240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4090960087713954449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7705150f5fbe4b24eaa921b64dc0b116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Drone
+  droneData: {fileID: 11400000, guid: cec845e55ff1c474fa02adf7df169f56, type: 2}
+--- !u!114 &5448583054419735463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4090960087713954449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 322779d807d3ef046a4ea354eed6efc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroneMovingComponent
+  rigidBody: {fileID: 5550821318966502242}
 --- !u!114 &315151436508576425
 MonoBehaviour:
   m_ObjectHideFlags: 0

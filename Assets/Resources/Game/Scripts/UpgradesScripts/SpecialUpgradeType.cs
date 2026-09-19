@@ -9,4 +9,5 @@ public enum SpecialUpgradeType
     LawnIncrease1,
     LawnIncrease2,
     LawnIncrease3,
+    LawnIncrease4,
 }

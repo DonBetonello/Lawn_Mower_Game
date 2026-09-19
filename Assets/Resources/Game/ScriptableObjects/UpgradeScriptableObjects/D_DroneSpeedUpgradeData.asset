@@ -16,7 +16,7 @@ MonoBehaviour:
   statType: 1
   specialUpgradeType: 0
   Name: Drone Speed
-  IncreaseAmount: 1
+  IncreaseAmount: 0.5
   ValueMeasurment: m\s
   StartValue: 1
   StartLevel: 0

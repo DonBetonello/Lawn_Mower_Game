@@ -3,14 +3,11 @@ using DG.Tweening;
 public class LawnMoverAnimationHandler : MonoBehaviour
 {
     private Sequence sequence;
-    private Vector3 startSize;
+    private Vector3 startSize = Vector3.one;
     private bool isAlreadyPlaying;
     [SerializeField] private ParticleSystem smokeParticle;
     
-    private void Awake()
-    {
-        startSize = transform.localScale;
-    }
+   
 
     private void OnEnable()
     {

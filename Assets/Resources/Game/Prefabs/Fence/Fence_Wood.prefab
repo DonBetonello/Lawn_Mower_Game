@@ -49,10 +49,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8044178510850235589}
     m_Modifications:
-    - target: {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4605590278829933190, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
       propertyPath: m_Name
       value: Fence_Wood
@@ -109,6 +105,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
     m_RemovedGameObjects: []
@@ -117,9 +117,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4605590278829933190, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6372241543987084235}
-    - targetCorrespondingSourceObject: {fileID: 4605590278829933190, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7106674265990337463}
   m_SourcePrefab: {fileID: 100100000, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
 --- !u!1 &4287343469876544536 stripped
 GameObject:
@@ -153,27 +150,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!65 &7106674265990337463
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4287343469876544536}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.122838974, y: 0.99999994, z: 2.2}
-  m_Center: {x: 0.061419487, y: -0.31000003, z: -1.1}
 --- !u!4 &7857385650754544990 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7610776882174911424, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
@@ -187,10 +163,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8044178510850235589}
     m_Modifications:
-    - target: {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4605590278829933190, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
       propertyPath: m_Name
       value: Fence_Wood
@@ -247,6 +219,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
     m_RemovedGameObjects: []
@@ -255,9 +231,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4605590278829933190, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3472595190596642020}
-    - targetCorrespondingSourceObject: {fileID: 4605590278829933190, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 948508206518256026}
   m_SourcePrefab: {fileID: 100100000, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
 --- !u!1 &3554940191175994160 stripped
 GameObject:
@@ -291,27 +264,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!65 &948508206518256026
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3554940191175994160}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.122838974, y: 0.99999994, z: 2.2}
-  m_Center: {x: 0.061419487, y: -0.31000003, z: -1.1}
 --- !u!4 &7431240591027014262 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7610776882174911424, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
@@ -387,10 +339,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8044178510850235589}
     m_Modifications:
-    - target: {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4605590278829933190, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
       propertyPath: m_Name
       value: Fence_Wood
@@ -447,6 +395,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
     m_RemovedGameObjects: []
@@ -455,9 +407,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4605590278829933190, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5590480303508521834}
-    - targetCorrespondingSourceObject: {fileID: 4605590278829933190, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 687561135496284207}
   m_SourcePrefab: {fileID: 100100000, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
 --- !u!4 &2563320086125519332 stripped
 Transform:
@@ -496,27 +445,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!65 &687561135496284207
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8495478557274685602}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.122838974, y: 0.99999994, z: 2.2}
-  m_Center: {x: 0.061419487, y: -0.31000003, z: -1.1}
 --- !u!1001 &5989688111908150801
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -525,10 +453,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8044178510850235589}
     m_Modifications:
-    - target: {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4605590278829933190, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
       propertyPath: m_Name
       value: Fence_Wood
@@ -585,6 +509,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
     m_RemovedGameObjects: []
@@ -593,9 +521,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4605590278829933190, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 384230406503589900}
-    - targetCorrespondingSourceObject: {fileID: 4605590278829933190, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 11645094773577003}
   m_SourcePrefab: {fileID: 100100000, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
 --- !u!4 &4215735226713783761 stripped
 Transform:
@@ -634,27 +559,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!65 &11645094773577003
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7851448085674515607}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.122838974, y: 0.99999994, z: 2.2}
-  m_Center: {x: 0.061419487, y: -0.31000003, z: -1.1}
 --- !u!1001 &6654855435045457851
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -663,14 +567,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8044178510850235589}
     m_Modifications:
-    - target: {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4605590278829933190, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
       propertyPath: m_Name
       value: Fence_Wood
@@ -731,6 +627,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
     m_RemovedGameObjects: []
@@ -739,9 +643,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4605590278829933190, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6193063359374293369}
-    - targetCorrespondingSourceObject: {fileID: 4605590278829933190, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1820434765535802575}
   m_SourcePrefab: {fileID: 100100000, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
 --- !u!4 &3874259523128274043 stripped
 Transform:
@@ -780,27 +681,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!65 &1820434765535802575
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7183413167233486141}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.122839004, y: 0.99999994, z: 2.2000005}
-  m_Center: {x: 0.06141974, y: -0.31000003, z: -1.1000003}
 --- !u!1001 &6945912685729101226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -809,10 +689,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8044178510850235589}
     m_Modifications:
-    - target: {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4605590278829933190, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
       propertyPath: m_Name
       value: Fence_Wood
@@ -873,6 +749,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
     m_RemovedGameObjects: []
@@ -881,9 +761,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4605590278829933190, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4662001541407249499}
-    - targetCorrespondingSourceObject: {fileID: 4605590278829933190, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7562391501245875015}
   m_SourcePrefab: {fileID: 100100000, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
 --- !u!4 &718956949488096874 stripped
 Transform:
@@ -922,27 +799,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!65 &7562391501245875015
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6885582976728807212}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.122839004, y: 0.99999994, z: 2.2000005}
-  m_Center: {x: 0.061419263, y: -0.31000003, z: -1.1000003}
 --- !u!1001 &8283768625994653237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -951,10 +807,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8044178510850235589}
     m_Modifications:
-    - target: {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4605590278829933190, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
       propertyPath: m_Name
       value: Fence_Wood
@@ -1011,6 +863,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
     m_RemovedGameObjects: []
@@ -1019,9 +875,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4605590278829933190, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6785528282413639893}
-    - targetCorrespondingSourceObject: {fileID: 4605590278829933190, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 869233354654071266}
   m_SourcePrefab: {fileID: 100100000, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
 --- !u!4 &1975728856080170485 stripped
 Transform:
@@ -1060,27 +913,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!65 &869233354654071266
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5557314775174175923}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.122838974, y: 0.99999994, z: 2.2}
-  m_Center: {x: 0.061419487, y: -0.31000003, z: -1.1}
 --- !u!1001 &8352773209883578432
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1089,10 +921,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8044178510850235589}
     m_Modifications:
-    - target: {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4605590278829933190, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
       propertyPath: m_Name
       value: Fence_Wood
@@ -1149,6 +977,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
     m_RemovedGameObjects: []
@@ -1157,9 +989,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4605590278829933190, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4852058425177648226}
-    - targetCorrespondingSourceObject: {fileID: 4605590278829933190, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8262576358455001475}
   m_SourcePrefab: {fileID: 100100000, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
 --- !u!4 &1906689205355475840 stripped
 Transform:
@@ -1198,27 +1027,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!65 &8262576358455001475
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5476752148096357062}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.122839004, y: 0.99999994, z: 2.2000005}
-  m_Center: {x: 0.061419502, y: -0.31000003, z: -1.1000005}
 --- !u!1001 &8928602534210118224
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1227,10 +1035,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8044178510850235589}
     m_Modifications:
-    - target: {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4605590278829933190, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
       propertyPath: m_Name
       value: Fence_Wood
@@ -1287,12 +1091,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5176476071673060640, guid: 9280f9160a5bf9b439d31478ea57dfd0, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4605590278829933190, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
-      insertIndex: 3
+      insertIndex: -1
       addedObject: {fileID: 415877619387605733}
   m_SourcePrefab: {fileID: 100100000, guid: e0711d5a87991a445b96af83e23ebc1c, type: 3}
 --- !u!4 &1330301260946293136 stripped

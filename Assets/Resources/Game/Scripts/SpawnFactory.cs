@@ -11,6 +11,8 @@ public class SpawnFactory : MonoBehaviour
     [SerializeField] private UFOSpawningPositionProvider ufoSpawningPositionProvider;
     private Dictionary<SpecialUpgradeType, GameObject> prefabs;
 
+    [SerializeField] GameObject ScaleParent;
+
     [SerializeField] Stat statManager;
 
     private void Awake()
@@ -38,7 +40,8 @@ public class SpawnFactory : MonoBehaviour
         if (upgradeData.specialUpgradeType != SpecialUpgradeType.None
             && upgradeData.specialUpgradeType != SpecialUpgradeType.LawnIncrease1
             && upgradeData.specialUpgradeType != SpecialUpgradeType.LawnIncrease2
-            && upgradeData.specialUpgradeType != SpecialUpgradeType.LawnIncrease3)
+            && upgradeData.specialUpgradeType != SpecialUpgradeType.LawnIncrease3
+            && upgradeData.specialUpgradeType != SpecialUpgradeType.LawnIncrease4)
         {
             Create(upgradeData.specialUpgradeType, statManager);
         }
@@ -61,6 +64,8 @@ public class SpawnFactory : MonoBehaviour
 
         var spawnable = obj.GetComponent<ISpawnable>();
         spawnable.Initialize(stat);
+
+        obj.transform.SetParent(ScaleParent.transform);
 
         return spawnable;
     }
