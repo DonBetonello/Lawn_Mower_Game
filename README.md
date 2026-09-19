@@ -11,17 +11,23 @@ The main goal is to upgrade your equipment and increase your efficiency.
 
  1.Cut grass to earn money
 
- 2.Upgrade lawn mower speed
- 
- 3.Drone upgrade that automatically cuts grass
- 
- 4.Flower bonus system (spawns every 3–5 minutes and gives x2 money)
- 
- 5.Sound effects with toggle on/off button
+ 2.Buy over 20 upgrades to earn more money from cutting grass.
+
+ 3.Buy a UFO upgrade that will fly across the field and turn grass golden increasing its value.
+
+ 4.Buy a flower that gives you a gain multiplier for a limited time
+
+ 5.Buy a drone that will fly around the field bouncing off walls and cutting grass alongside with you.
+
+ 6.Increase size of your lawn to get more space for grass to grow.
+
+ 7.Change locations to gain more money and have different background and models (W.I.P currently awailable halloween background)
 
 **Tech Stack**
 Unity (C#)
 Mobile (Android)
+Blender (3D Models)
+Krita (2D Icons)
 
 **Gameplay Preview**
 
@@ -37,12 +43,12 @@ Mobile (Android)
 
 4.UI interaction and feedback
 
-5.Adding sound and simple UX features
-
 **Planned Future Improvements**
 
 1.Add more upgrade types
 
-2.Improve UI/UX (or complete remake)
+2.Improve UI/UX 
 
 3.Add saving system
+
+4.Add sounds 
