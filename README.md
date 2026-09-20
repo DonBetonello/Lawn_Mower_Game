@@ -32,7 +32,7 @@ Krita (2D Icons)
 
 **Gameplay Preview**
 
-<img width="336" height="634" alt="LawnMoverGamePreviewGif" src="https://github.com/user-attachments/assets/5aa5a7e7-e7f2-4023-afd6-3b74d67df841" />
+<img width="320" height="634" alt="LawnMoverGamePreviewGif" src="https://github.com/user-attachments/assets/5aa5a7e7-e7f2-4023-afd6-3b74d67df841" />
 
 **Upgrade menu UI**
 
