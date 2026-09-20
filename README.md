@@ -1,4 +1,5 @@
 
+
 LawnMower Game (WIP)
 
 A simple hyper-casual mobile game made in Unity to practice game development skills.
@@ -31,7 +32,12 @@ Krita (2D Icons)
 
 **Gameplay Preview**
 
-<p align="center"> <img src="https://github.com/user-attachments/assets/41294b38-342a-492e-befe-8c9b8b94e67b" width="300"/> </p>
+<img width="336" height="634" alt="LawnMoverGamePreviewGif" src="https://github.com/user-attachments/assets/5aa5a7e7-e7f2-4023-afd6-3b74d67df841" />
+
+**Upgrade menu UI**
+
+<img width="320" height="638" alt="UIPreviewGif" src="https://github.com/user-attachments/assets/278edbe8-1eb7-4623-bbe0-46649f04caf6" />
+
 
 **What I Learned:**
 
